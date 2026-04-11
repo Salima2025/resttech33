@@ -3,8 +3,17 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import Index from "./pages/Index.tsx";
-import NotFound from "./pages/NotFound.tsx";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import HomePage from "./pages/HomePage";
+import CalculatorPage from "./pages/CalculatorPage";
+import CasesPage from "./pages/CasesPage";
+import EquipmentPage from "./pages/EquipmentPage";
+import IoTPage from "./pages/IoTPage";
+import ConsultingPage from "./pages/ConsultingPage";
+import AboutPage from "./pages/AboutPage";
+import ContactsPage from "./pages/ContactsPage";
+import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
@@ -14,11 +23,21 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <Header />
+        <main className="min-h-screen">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/calculator" element={<CalculatorPage />} />
+            <Route path="/cases" element={<CasesPage />} />
+            <Route path="/solutions/equipment" element={<EquipmentPage />} />
+            <Route path="/solutions/iot" element={<IoTPage />} />
+            <Route path="/solutions/consulting" element={<ConsultingPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contacts" element={<ContactsPage />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>
+        <Footer />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
