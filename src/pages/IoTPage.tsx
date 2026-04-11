@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Cpu, Wifi, BarChart3, Bell, ArrowRight, CheckCircle } from "lucide-react";
+import { Cpu, Wifi, BarChart3, Bell, ArrowRight, CheckCircle, Building2 } from "lucide-react";
 
 const stages = [
   { step: "01", title: "Аудит", desc: "Обследуем кухню, определяем точки потерь и приоритеты автоматизации." },
@@ -18,14 +18,45 @@ const features = [
   { icon: Cpu, title: "Интеграция с CRM/POS", desc: "Связь с вашими системами учёта, R-Keeper, iiko и др." },
 ];
 
+const packages = [
+  {
+    title: "IoT‑контроль для кафе 80–120 мест",
+    desc: "Датчики на печи, жарочные поверхности, холодильники. Тревоги, аналитика, обучение персонала.",
+    budget: "150–300 тыс ₽",
+    payback: "6–12 месяцев",
+    cta: "Запросить пакет для кафе",
+  },
+  {
+    title: "IoT‑контроль для ресторана 120–200 мест",
+    desc: "Датчики, тревоги, аналитика, интеграция с CRM/POS, обучение персонала.",
+    budget: "250–500 тыс ₽",
+    payback: "12–18 месяцев",
+    cta: "Запросить пакет для ресторана",
+  },
+  {
+    title: "IoT‑платформа для сети 5–10+ точек",
+    desc: "Единая платформа для всех точек: централизованная аналитика, мониторинг, тревоги, обучение персонала.",
+    budget: "1–3 млн ₽",
+    payback: "12–24 месяца",
+    cta: "Запросить пакет для сети",
+  },
+  {
+    title: "IoT‑контроль для кухни‑сервиса",
+    desc: "Датчики, тревоги, аналитика, мониторинг логистики, обучение персонала.",
+    budget: "300–700 тыс ₽",
+    payback: "8–16 месяцев",
+    cta: "Запросить пакет для кухни‑сервиса",
+  },
+];
+
 export default function IoTPage() {
   return (
     <>
       <section className="gradient-hero text-primary-foreground py-14 md:py-20">
         <div className="container-tight px-4 md:px-8">
-          <h1 className="font-display font-bold text-3xl md:text-5xl mb-4">IoT-экосистема «под ключ»</h1>
+          <h1 className="font-display font-bold text-3xl md:text-5xl mb-4">IoT‑контроль и аналитика кухни Rest‑Tech</h1>
           <p className="text-primary-foreground/70 text-lg max-w-2xl">
-            Полная автоматизация кухни: датчики, мониторинг, тревоги, интеграция с CRM/POS и отчётность.
+            Увеличьте экономическую эффективность уже купленного оборудования на 15–20 %. Мониторинг и управление кухнями в реальном времени.
           </p>
         </div>
       </section>
@@ -52,6 +83,24 @@ export default function IoTPage() {
             ))}
           </div>
 
+          {/* Effect */}
+          <div className="bg-muted/50 rounded-2xl p-8 mb-16">
+            <h2 className="font-display font-bold text-2xl text-foreground mb-6 text-center">Эффект для бизнеса</h2>
+            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+              {[
+                { value: "15–40%", label: "снижение операционных расходов" },
+                { value: "20–30%", label: "сокращение времени простоев" },
+                { value: "10–25%", label: "снижение ошибок и перерасхода" },
+                { value: "6–18 мес.", label: "срок окупаемости" },
+              ].map((s) => (
+                <div key={s.label} className="text-center">
+                  <p className="font-display font-bold text-2xl text-accent">{s.value}</p>
+                  <p className="text-xs text-muted-foreground mt-1">{s.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
           {/* Stages */}
           <h2 className="font-display font-bold text-2xl text-foreground mb-8 text-center">Этапы внедрения</h2>
           <div className="space-y-4 mb-16 max-w-2xl mx-auto">
@@ -73,13 +122,44 @@ export default function IoTPage() {
             ))}
           </div>
 
+          {/* IoT Packages */}
+          <h2 className="font-display font-bold text-2xl text-foreground mb-3 text-center">Готовые IoT‑пакеты Rest‑Tech</h2>
+          <p className="text-muted-foreground text-center mb-8 text-sm">Выберите готовое решение под ваш формат заведения</p>
+          <div className="grid md:grid-cols-2 gap-6 mb-16">
+            {packages.map((pkg, i) => (
+              <motion.div
+                key={pkg.title}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-card rounded-2xl p-6 border border-border shadow-card flex flex-col"
+              >
+                <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+                  <Building2 className="w-5 h-5 text-accent" />
+                </div>
+                <h3 className="font-display font-bold text-lg text-foreground mb-2">{pkg.title}</h3>
+                <p className="text-sm text-muted-foreground mb-4 flex-1">{pkg.desc}</p>
+                <div className="flex items-center gap-4 text-xs text-muted-foreground mb-4">
+                  <span>Бюджет: <strong className="text-foreground">{pkg.budget}</strong></span>
+                  <span>Окупаемость: <strong className="text-foreground">{pkg.payback}</strong></span>
+                </div>
+                <Link to="/contacts">
+                  <Button variant="accent" size="sm" className="w-full">
+                    {pkg.cta} <ArrowRight className="w-4 h-4 ml-1" />
+                  </Button>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+
           <div className="text-center">
             <div className="flex flex-wrap justify-center gap-4">
               <Link to="/contacts">
-                <Button variant="accent" size="lg">Заказать аудит <ArrowRight className="w-4 h-4 ml-1" /></Button>
+                <Button variant="accent" size="lg">Запросить IoT‑аудит <ArrowRight className="w-4 h-4 ml-1" /></Button>
               </Link>
               <Link to="/calculator">
-                <Button variant="outline" size="lg">Рассчитать ROI</Button>
+                <Button variant="outline" size="lg">Рассчитать экономию</Button>
               </Link>
             </div>
           </div>
