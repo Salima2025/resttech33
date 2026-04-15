@@ -54,7 +54,7 @@ export default function IoTPage() {
     <>
       <section className="gradient-hero text-primary-foreground py-14 md:py-20">
         <div className="container-tight px-4 md:px-8">
-          <h1 className="font-display font-bold text-3xl md:text-5xl mb-4">IoT‑контроль и аналитика кухни Rest‑Tech</h1>
+          <h1 className="font-display font-bold text-3xl md:text-5xl mb-4">Ресторанные технологии Rest‑Tech</h1>
           <p className="text-primary-foreground/70 text-lg max-w-2xl">
             Увеличьте экономическую эффективность уже купленного оборудования на 15–20 %. Мониторинг и управление кухнями в реальном времени.
           </p>

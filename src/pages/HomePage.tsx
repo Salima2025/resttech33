@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight, Cpu, Wrench, GraduationCap, TrendingDown, Clock, ShieldCheck, ChevronRight, Quote } from "lucide-react";
+import { ArrowRight, Wrench, Cpu, GraduationCap, TrendingDown, Clock, ShieldCheck, ChevronRight, Ruler } from "lucide-react";
+import heroImg from "@/assets/hero-kitchen.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -17,11 +18,18 @@ const services = [
     cta: "Посмотреть оборудование",
   },
   {
+    icon: Ruler,
+    title: "Спроектировать кухню",
+    desc: "Расстановка оборудования, расчёт мощностей, проектирование кухни под ваш формат заведения.",
+    href: "/solutions/design",
+    cta: "Заказать проект кухни",
+  },
+  {
     icon: Cpu,
-    title: "IoT‑экосистема",
-    desc: "Мониторинг, датчики, тревоги, интеграция с CRM/POS — полная автоматизация кухни «под ключ».",
+    title: "Ресторанные технологии",
+    desc: "IoT-мониторинг, датчики, тревоги, интеграция с CRM/POS — полная автоматизация кухни «под ключ».",
     href: "/solutions/iot",
-    cta: "Запустить IoT‑систему",
+    cta: "Узнать о технологиях",
   },
   {
     icon: GraduationCap,
@@ -38,21 +46,21 @@ const stats = [
   { value: "350+", label: "успешных проектов в HoReCa", icon: ShieldCheck },
 ];
 
-const testimonials = [
+const projects = [
   {
-    quote: "После внедрения IoT‑системы от Rest‑Tech мы сократили простои на кухне на 25 % и снизили операционные расходы на 18 %.",
-    name: "Михаил Сергеев",
-    role: "Управляющий, кафе «Urban Brew»",
+    title: "Пекарня «Лепим‑Варим»",
+    desc: "Комплексное оснащение пекарни: тепловое и холодильное оборудование, проект расстановки, запуск за 3 недели.",
+    result: "Запуск с нуля за 21 день",
   },
   {
-    quote: "Интеграция с CRM и POS‑системами позволила снизить ошибки сборки и перерасход продуктов на 20 %. Окупились за 15 месяцев.",
-    name: "Анна Козлова",
-    role: "Операционный директор, «Gourmet House»",
+    title: "Корнер «Street Wok»",
+    desc: "Готовое решение для фуд-корнера: компактное тепловое оборудование, вытяжка, проект мощностей.",
+    result: "Окупаемость за 4 месяца",
   },
   {
-    quote: "Единая IoT‑платформа для 8 ресторанов снизила операционные расходы на 30 %. Рекомендуем Rest‑Tech всем сетям.",
-    name: "Дмитрий Волков",
-    role: "CEO, «Culinary Group»",
+    title: "Франшиза «Burger Lab»",
+    desc: "Унифицированный комплект оборудования для 12 точек сети: стандартизация, логистика, монтаж.",
+    result: "12 точек за 6 месяцев",
   },
 ];
 
@@ -66,9 +74,10 @@ const audiences = [
 export default function HomePage() {
   return (
     <>
-      {/* Hero */}
-      <section className="gradient-hero text-primary-foreground relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(220_50%_25%/0.5),transparent_70%)]" />
+      {/* Hero with photo background */}
+      <section className="relative overflow-hidden text-primary-foreground">
+        <img src={heroImg} alt="Профессиональная кухня ресторана" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-foreground/80" />
         <div className="container-tight relative z-10 py-20 md:py-32 px-4 md:px-8">
           <motion.div initial="hidden" animate="visible" className="max-w-3xl">
             <motion.p custom={0} variants={fadeUp} className="text-accent font-display font-semibold text-sm tracking-wider uppercase mb-4">
@@ -79,7 +88,7 @@ export default function HomePage() {
               <span className="text-accent">от Rest‑Tech</span>
             </motion.h1>
             <motion.p custom={2} variants={fadeUp} className="text-lg md:text-xl text-primary-foreground/75 mb-8 max-w-2xl">
-              Профессиональное оборудование + IoT‑контроль и поддержка после продажи. Снижаем операционные расходы на 15–40 %.
+              Профессиональное оборудование + ресторанные технологии и поддержка после продажи. Снижаем операционные расходы на 15–40 %.
             </motion.p>
             <motion.div custom={3} variants={fadeUp} className="flex flex-wrap gap-4">
               <Link to="/solutions/equipment">
@@ -88,7 +97,7 @@ export default function HomePage() {
                 </Button>
               </Link>
               <Link to="/calculator">
-                <Button variant="heroOutline" size="lg">Рассчитать экономию</Button>
+                <Button variant="heroOutline" size="lg">Калькулятор инвестиций</Button>
               </Link>
             </motion.div>
           </motion.div>
@@ -142,19 +151,19 @@ export default function HomePage() {
       <section className="section-padding bg-muted/30">
         <div className="container-tight">
           <div className="text-center mb-12">
-            <h2 className="font-display font-bold text-3xl md:text-4xl text-foreground mb-4">Экономия вашего заведения: оборудование и IoT‑контроль</h2>
+            <h2 className="font-display font-bold text-3xl md:text-4xl text-foreground mb-4">Экономия вашего заведения: оборудование и технологии</h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Каждое направление работает самостоятельно, но вместе они дают максимальный эффект.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((svc, i) => (
               <motion.div key={svc.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.15 }}>
-                <Link to={svc.href} className="group block bg-card rounded-2xl p-6 md:p-8 shadow-card hover:shadow-elevated transition-all duration-300 border border-border hover:border-accent/30 h-full">
+                <Link to={svc.href} className="group block bg-card rounded-2xl p-6 shadow-card hover:shadow-elevated transition-all duration-300 border border-border hover:border-accent/30 h-full">
                   <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-accent/20 transition-colors">
                     <svc.icon className="w-6 h-6 text-accent" />
                   </div>
-                  <h3 className="font-display font-bold text-xl text-foreground mb-3">{svc.title}</h3>
+                  <h3 className="font-display font-bold text-lg text-foreground mb-3">{svc.title}</h3>
                   <p className="text-muted-foreground text-sm mb-5 leading-relaxed">{svc.desc}</p>
                   <span className="inline-flex items-center text-sm font-semibold text-accent group-hover:gap-2 transition-all">
                     {svc.cta} <ChevronRight className="w-4 h-4" />
@@ -166,21 +175,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Our Projects */}
       <section className="section-padding bg-background">
         <div className="container-tight">
-          <h2 className="font-display font-bold text-3xl md:text-4xl text-foreground mb-10 text-center">Отзывы наших клиентов</h2>
+          <h2 className="font-display font-bold text-3xl md:text-4xl text-foreground mb-10 text-center">Наши проекты</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((t, i) => (
-              <motion.div key={t.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.12 }} className="bg-card rounded-2xl p-6 shadow-card border border-border">
-                <Quote className="w-8 h-8 text-accent/30 mb-4" />
-                <p className="text-foreground text-sm leading-relaxed mb-5">«{t.quote}»</p>
-                <div>
-                  <p className="font-semibold text-sm text-foreground">{t.name}</p>
-                  <p className="text-xs text-muted-foreground">{t.role}</p>
+            {projects.map((p, i) => (
+              <motion.div key={p.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.12 }} className="bg-card rounded-2xl p-6 shadow-card border border-border">
+                <h3 className="font-display font-bold text-lg text-foreground mb-3">{p.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4">{p.desc}</p>
+                <div className="bg-accent/10 rounded-lg px-4 py-2">
+                  <p className="text-sm font-semibold text-accent">{p.result}</p>
                 </div>
               </motion.div>
             ))}
+          </div>
+          <div className="text-center mt-8">
+            <Link to="/cases">
+              <Button variant="accent" size="lg">
+                Смотреть все готовые решения <ArrowRight className="w-4 h-4 ml-1" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -190,14 +205,14 @@ export default function HomePage() {
         <div className="container-tight text-center">
           <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">Готовы оптимизировать вашу кухню?</h2>
           <p className="text-primary-foreground/70 text-lg mb-8 max-w-xl mx-auto">
-            Рассчитайте экономию за 2 минуты и получите персональный отчёт для вашего заведения.
+            Рассчитайте инвестиции за 2 минуты или получите готовый проект для вашего заведения.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/calculator">
-              <Button variant="hero" size="lg">Рассчитать экономию <ArrowRight className="w-4 h-4 ml-1" /></Button>
+              <Button variant="hero" size="lg">Калькулятор инвестиций <ArrowRight className="w-4 h-4 ml-1" /></Button>
             </Link>
             <Link to="/contacts">
-              <Button variant="heroOutline" size="lg">Связаться с Rest‑Tech</Button>
+              <Button variant="heroOutline" size="lg">Получить готовый проект</Button>
             </Link>
           </div>
         </div>

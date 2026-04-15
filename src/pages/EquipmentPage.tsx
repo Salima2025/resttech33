@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Wrench, ShieldCheck, Truck, ArrowRight, Filter } from "lucide-react";
+import { Wrench, ShieldCheck, Truck, ArrowRight, Flame, Snowflake, Zap, Coffee, WashingMachine, Recycle } from "lucide-react";
 
 const categories = [
-  "Приготовление", "Холод", "Напитки и бар", "Посудомойка", "Подготовка", "Б/у оборудование",
+  { name: "Тепловое оборудование", icon: Flame },
+  { name: "Холодильное оборудование", icon: Snowflake },
+  { name: "Электромеханическое оборудование", icon: Zap },
+  { name: "Кофейное и барное оборудование", icon: Coffee },
+  { name: "Посудомоечное оборудование", icon: WashingMachine },
+  { name: "Б/у оборудование", icon: Recycle },
 ];
 
 const benefits = [
@@ -38,7 +43,7 @@ export default function EquipmentPage() {
             <div>
               <h2 className="font-display font-bold text-2xl text-foreground mb-4">Наше решение</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Мы подбираем оборудование под ваш формат, бюджет и тип кухни. Каждая единица проходит проверку, поставляется с гарантией и может быть интегрирована в IoT-экосистему.
+                Мы подбираем оборудование под ваш формат, бюджет и тип кухни. Каждая единица проходит проверку, поставляется с гарантией и может быть интегрирована в систему мониторинга.
               </p>
             </div>
           </div>
@@ -48,22 +53,22 @@ export default function EquipmentPage() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-16">
             {categories.map((cat, i) => (
               <motion.div
-                key={cat}
+                key={cat.name}
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
                 className="bg-card rounded-xl p-5 border border-border shadow-card hover:shadow-elevated hover:border-accent/30 transition-all cursor-pointer group"
               >
-                <Filter className="w-5 h-5 text-accent mb-2" />
-                <p className="font-semibold text-foreground text-sm group-hover:text-accent transition-colors">{cat}</p>
+                <cat.icon className="w-6 h-6 text-accent mb-3 group-hover:scale-110 transition-transform duration-200" />
+                <p className="font-semibold text-foreground text-sm group-hover:text-accent transition-colors">{cat.name}</p>
               </motion.div>
             ))}
           </div>
 
           {/* Benefits */}
           <div className="grid md:grid-cols-3 gap-6 mb-16">
-            {benefits.map((b, i) => (
+            {benefits.map((b) => (
               <div key={b.title} className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
                   <b.icon className="w-5 h-5 text-accent" />
@@ -80,11 +85,11 @@ export default function EquipmentPage() {
           <div className="bg-navy rounded-2xl p-8 text-primary-foreground">
             <h3 className="font-display font-bold text-xl mb-3">Хотите не просто купить, а автоматизировать кухню?</h3>
             <p className="text-primary-foreground/70 text-sm mb-5">
-              Сравните вариант комплексного внедрения IoT-экосистемы — оборудование станет частью умной системы.
+              Сравните вариант комплексного внедрения ресторанных технологий — оборудование станет частью умной системы.
             </p>
             <Link to="/solutions/iot">
               <Button variant="hero" size="lg">
-                Узнать про IoT-экосистему <ArrowRight className="w-4 h-4 ml-1" />
+                Узнать о ресторанных технологиях <ArrowRight className="w-4 h-4 ml-1" />
               </Button>
             </Link>
           </div>

@@ -6,14 +6,15 @@ import { cn } from "@/lib/utils";
 
 const solutions = [
   { label: "Оборудование", href: "/solutions/equipment", desc: "Новое и б/у для HoReCa" },
-  { label: "IoT-экосистема", href: "/solutions/iot", desc: "Умная кухня «под ключ»" },
+  { label: "Спроектировать кухню", href: "/solutions/design", desc: "Расстановка, расчёт мощностей" },
+  { label: "Ресторанные технологии", href: "/solutions/iot", desc: "IoT, мониторинг, автоматизация" },
   { label: "Консалтинг & обучение", href: "/solutions/consulting", desc: "Аудит, обучение, внедрение" },
 ];
 
 const navLinks = [
   { label: "Решения", href: "/solutions", children: solutions },
-  { label: "Калькулятор ROI", href: "/calculator" },
-  { label: "Кейсы", href: "/cases" },
+  { label: "Калькулятор инвестиций", href: "/calculator" },
+  { label: "Готовые решения", href: "/cases" },
   { label: "О компании", href: "/about" },
   { label: "Контакты", href: "/contacts" },
 ];
@@ -80,7 +81,7 @@ export default function Header() {
 
         <div className="hidden lg:flex items-center gap-3">
           <Link to="/calculator">
-            <Button variant="navCta" size="sm">Оценить экономику</Button>
+            <Button variant="navCta" size="sm">Калькулятор инвестиций</Button>
           </Link>
         </div>
 
@@ -130,7 +131,7 @@ export default function Header() {
             )
           )}
           <Link to="/calculator" onClick={() => setMobileOpen(false)}>
-            <Button variant="accent" className="w-full mt-2">Оценить экономику</Button>
+            <Button variant="accent" className="w-full mt-2">Калькулятор инвестиций</Button>
           </Link>
         </div>
       )}
