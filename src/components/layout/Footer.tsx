@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 const footerLinks = {
   "Решения": [
     { label: "Оборудование", href: "/solutions/equipment" },
-    { label: "IoT-экосистема", href: "/solutions/iot" },
+    { label: "Спроектировать кухню", href: "/solutions/design" },
+    { label: "Ресторанные технологии", href: "/solutions/iot" },
     { label: "Консалтинг & обучение", href: "/solutions/consulting" },
   ],
   "Компания": [
     { label: "О нас", href: "/about" },
-    { label: "Кейсы", href: "/cases" },
+    { label: "Готовые решения", href: "/cases" },
     { label: "Контакты", href: "/contacts" },
   ],
   "Сценарии": [
@@ -31,7 +32,7 @@ export default function Footer() {
               <span className="font-display font-bold text-lg">Rest-Tech</span>
             </div>
             <p className="text-sm text-primary-foreground/70 max-w-[240px]">
-              Интегратор умной кухни для HoReCa. Оборудование, IoT-экосистемы, консалтинг.
+              Интегратор умной кухни для HoReCa. Оборудование, ресторанные технологии, консалтинг.
             </p>
           </div>
 
@@ -54,7 +55,7 @@ export default function Footer() {
         <div className="border-t border-primary-foreground/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-primary-foreground/50">© 2026 Rest-Tech. Все права защищены.</p>
           <Link to="/calculator" className="text-sm font-semibold text-accent hover:text-orange-light transition-colors">
-            Оценить экономику вашей кухни →
+            Калькулятор инвестиций →
           </Link>
         </div>
       </div>
