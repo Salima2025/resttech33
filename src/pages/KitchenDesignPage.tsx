@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Ruler, Zap, LayoutGrid, ArrowRight, CheckCircle } from "lucide-react";
+import blueprintImg from "@/assets/kitchen-blueprint.jpg";
+import engineerImg from "@/assets/kitchen-design-engineer.jpg";
+import layout3dImg from "@/assets/kitchen-3d-layout.jpg";
 
 const steps = [
   { step: "01", title: "Замер и анализ", desc: "Выезд на объект или анализ планировки, определение требований к кухне." },
