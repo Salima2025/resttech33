@@ -25,10 +25,12 @@ const benefits = [
 export default function KitchenDesignPage() {
   return (
     <>
-      <section className="gradient-hero text-primary-foreground py-14 md:py-20">
-        <div className="container-tight px-4 md:px-8">
+      <section className="relative overflow-hidden text-primary-foreground py-14 md:py-20">
+        <img src={engineerImg} alt="Инженер проектирует кухню ресторана" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
+        <div className="absolute inset-0 bg-foreground/80" />
+        <div className="container-tight px-4 md:px-8 relative z-10">
           <h1 className="font-display font-bold text-3xl md:text-5xl mb-4">Проектирование кухни</h1>
-          <p className="text-primary-foreground/70 text-lg max-w-2xl">
+          <p className="text-primary-foreground/80 text-lg max-w-2xl">
             Расстановка оборудования, расчёт мощностей, проект кухни под ваш формат заведения — от кафе до сети ресторанов.
           </p>
         </div>
@@ -36,6 +38,24 @@ export default function KitchenDesignPage() {
 
       <section className="section-padding bg-background">
         <div className="container-tight">
+          {/* Visuals row */}
+          <div className="grid md:grid-cols-2 gap-6 mb-16">
+            <motion.div initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-2xl overflow-hidden border border-border shadow-card">
+              <img src={blueprintImg} alt="Чертёж кухни с расстановкой оборудования" width={1280} height={800} loading="lazy" className="w-full h-64 md:h-80 object-cover" />
+              <div className="p-5 bg-card">
+                <p className="font-display font-bold text-foreground mb-1">Чертёж расстановки</p>
+                <p className="text-sm text-muted-foreground">Размеры, зонирование, потоки сырья и готовых блюд.</p>
+              </div>
+            </motion.div>
+            <motion.div initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="rounded-2xl overflow-hidden border border-border shadow-card">
+              <img src={layout3dImg} alt="3D-визуализация кухни ресторана" width={1280} height={800} loading="lazy" className="w-full h-64 md:h-80 object-cover" />
+              <div className="p-5 bg-card">
+                <p className="font-display font-bold text-foreground mb-1">3D‑визуализация</p>
+                <p className="text-sm text-muted-foreground">Объёмная модель кухни до начала монтажа.</p>
+              </div>
+            </motion.div>
+          </div>
+
           {/* What you get */}
           <div className="grid md:grid-cols-3 gap-6 mb-16">
             {[

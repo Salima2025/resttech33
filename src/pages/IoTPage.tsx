@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Cpu, Wifi, BarChart3, Bell, ArrowRight, CheckCircle, Building2 } from "lucide-react";
+import dashboardMain from "@/assets/iot-dashboard-main.jpg";
+import dashboardNetwork from "@/assets/iot-dashboard-network.jpg";
+import dashboardAlerts from "@/assets/iot-dashboard-alerts.jpg";
 
 const stages = [
   { step: "01", title: "Аудит", desc: "Обследуем кухню, определяем точки потерь и приоритеты автоматизации." },
@@ -63,6 +66,29 @@ export default function IoTPage() {
 
       <section className="section-padding bg-background">
         <div className="container-tight">
+          {/* Dashboard preview */}
+          <div className="mb-16">
+            <div className="rounded-2xl overflow-hidden border border-border shadow-elevated mb-6">
+              <img src={dashboardMain} alt="Главный дашборд Rest-Tech: метрики кухни в реальном времени" width={1280} height={800} loading="eager" className="w-full h-auto" />
+            </div>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="rounded-2xl overflow-hidden border border-border shadow-card">
+                <img src={dashboardNetwork} alt="Дашборд сети: централизованный мониторинг точек" width={1280} height={800} loading="lazy" className="w-full h-56 md:h-64 object-cover" />
+                <div className="p-5 bg-card">
+                  <p className="font-display font-bold text-foreground mb-1">Дашборд сети</p>
+                  <p className="text-sm text-muted-foreground">Централизованный мониторинг всех точек в одном окне.</p>
+                </div>
+              </div>
+              <div className="rounded-2xl overflow-hidden border border-border shadow-card">
+                <img src={dashboardAlerts} alt="Дашборд тревог и уведомлений" width={1280} height={800} loading="lazy" className="w-full h-56 md:h-64 object-cover" />
+                <div className="p-5 bg-card">
+                  <p className="font-display font-bold text-foreground mb-1">Тревоги и уведомления</p>
+                  <p className="text-sm text-muted-foreground">Мобильные алерты о сбоях и отклонениях оборудования.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Features */}
           <div className="grid md:grid-cols-2 gap-6 mb-16">
             {features.map((f, i) => (
