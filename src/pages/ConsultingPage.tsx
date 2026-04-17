@@ -1,7 +1,30 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { GraduationCap, ClipboardCheck, BookOpen, ArrowRight, CheckCircle } from "lucide-react";
+import { GraduationCap, ClipboardCheck, BookOpen, ArrowRight, CheckCircle, Users, UserCheck, Briefcase, Search } from "lucide-react";
+
+const staffing = [
+  {
+    icon: Briefcase,
+    title: "Шеф‑повар / су‑шеф",
+    desc: "Подбор шефов с опытом в нужной кухне и формате — в штат или на проект запуска.",
+  },
+  {
+    icon: UserCheck,
+    title: "Управляющий / директор",
+    desc: "Опытные управляющие ресторанами и сетями. Запуск, операционка, KPI.",
+  },
+  {
+    icon: Users,
+    title: "Линейный персонал",
+    desc: "Повара, бармены, официанты, посудомойщики — быстрое закрытие позиций под открытие.",
+  },
+  {
+    icon: Search,
+    title: "Внештатные эксперты",
+    desc: "Технолог, аудитор, бренд‑шеф, консультант по меню — на проект или почасово.",
+  },
+];
 
 const services = [
   {
@@ -64,6 +87,43 @@ export default function ConsultingPage() {
                 </ul>
               </motion.div>
             ))}
+          </div>
+
+          {/* Staffing block */}
+          <div className="mb-16">
+            <div className="text-center mb-8">
+              <h2 className="font-display font-bold text-2xl md:text-3xl text-foreground mb-3">Подбор персонала</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Закрываем ключевые позиции в штат и подбираем внештатных экспертов под проекты — от запуска точки до операционного управления сетью.
+              </p>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-6">
+              {staffing.map((s, i) => (
+                <motion.div
+                  key={s.title}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="bg-card rounded-2xl p-5 border border-border shadow-card"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-3">
+                    <s.icon className="w-5 h-5 text-accent" />
+                  </div>
+                  <h3 className="font-display font-bold text-base text-foreground mb-2">{s.title}</h3>
+                  <p className="text-sm text-muted-foreground">{s.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+            <div className="bg-muted/50 rounded-2xl p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+              <div>
+                <p className="font-display font-bold text-foreground mb-1">Нужен персонал под запуск или замену?</p>
+                <p className="text-sm text-muted-foreground">Подберём кандидатов из закрытой базы за 5–14 дней.</p>
+              </div>
+              <Link to="/contacts">
+                <Button variant="accent">Запросить подбор <ArrowRight className="w-4 h-4 ml-1" /></Button>
+              </Link>
+            </div>
           </div>
 
           {/* Funnel */}

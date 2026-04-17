@@ -57,7 +57,7 @@ export default function ContactsPage() {
                 <p className="text-sm text-foreground font-semibold mb-2">Быстрый доступ:</p>
                 <ul className="space-y-1.5 text-sm text-muted-foreground">
                   <li>• <a href="/calculator" className="text-accent hover:underline">Калькулятор ROI</a> — оцените экономику за 2 минуты</li>
-                  <li>• <a href="/cases" className="text-accent hover:underline">Кейсы</a> — посмотрите результаты клиентов</li>
+                  <li>• <a href="/#projects" className="text-accent hover:underline">Наши проекты</a> — посмотрите результаты клиентов</li>
                 </ul>
               </div>
             </div>

@@ -176,7 +176,7 @@ export default function HomePage() {
       </section>
 
       {/* Our Projects */}
-      <section className="section-padding bg-background">
+      <section id="projects" className="section-padding bg-background scroll-mt-20">
         <div className="container-tight">
           <h2 className="font-display font-bold text-3xl md:text-4xl text-foreground mb-10 text-center">Наши проекты</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
