@@ -12,10 +12,12 @@ const footerLinks = {
     { label: "Готовые решения", href: "/cases" },
     { label: "Контакты", href: "/contacts" },
   ],
-  "Сценарии": [
-    { label: "Кафе 100–150 мест", href: "/calculator" },
-    { label: "Сеть ресторанов", href: "/calculator" },
-    { label: "Кухня-сервис", href: "/calculator" },
+  "Документы": [
+    { label: "Политика обработки ПДн", href: "/legal/privacy" },
+    { label: "Согласие на обработку ПДн", href: "/legal/personal-data-consent" },
+    { label: "Публичная оферта", href: "/legal/offer" },
+    { label: "Пользовательское соглашение", href: "/legal/terms" },
+    { label: "Согласие на рассылку", href: "/legal/marketing-consent" },
   ],
 };
 
@@ -53,7 +55,10 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-primary-foreground/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-primary-foreground/50">© 2026 Rest-Tech. Все права защищены.</p>
+          <div className="text-xs text-primary-foreground/50 space-y-1">
+            <p>© 2026 Rest-Tech. Все права защищены.</p>
+            <p>ИП Ломакин Павел Константинович · ИНН 502728918918</p>
+          </div>
           <Link to="/calculator" className="text-sm font-semibold text-accent hover:text-orange-light transition-colors">
             Калькулятор инвестиций →
           </Link>

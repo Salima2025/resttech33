@@ -15,6 +15,11 @@ import ConsultingPage from "./pages/ConsultingPage";
 import AboutPage from "./pages/AboutPage";
 import ContactsPage from "./pages/ContactsPage";
 import NotFound from "./pages/NotFound";
+import PrivacyPolicyPage from "./pages/legal/PrivacyPolicyPage";
+import PersonalDataConsentPage from "./pages/legal/PersonalDataConsentPage";
+import PublicOfferPage from "./pages/legal/PublicOfferPage";
+import TermsOfUsePage from "./pages/legal/TermsOfUsePage";
+import MarketingConsentPage from "./pages/legal/MarketingConsentPage";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +41,11 @@ const App = () => (
             <Route path="/solutions/consulting" element={<ConsultingPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contacts" element={<ContactsPage />} />
+            <Route path="/legal/privacy" element={<PrivacyPolicyPage />} />
+            <Route path="/legal/personal-data-consent" element={<PersonalDataConsentPage />} />
+            <Route path="/legal/offer" element={<PublicOfferPage />} />
+            <Route path="/legal/terms" element={<TermsOfUsePage />} />
+            <Route path="/legal/marketing-consent" element={<MarketingConsentPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
