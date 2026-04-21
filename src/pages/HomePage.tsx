@@ -2,7 +2,14 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight, Wrench, Cpu, GraduationCap, TrendingDown, Clock, ShieldCheck, ChevronRight, Ruler } from "lucide-react";
+import Autoplay from "embla-carousel-autoplay";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import heroImg from "@/assets/hero-kitchen.jpg";
+import eqOven from "@/assets/equipment-combi-oven.jpg";
+import eqFridge from "@/assets/equipment-fridge.jpg";
+import eqDish from "@/assets/equipment-dishwasher.jpg";
+import eqGriddle from "@/assets/equipment-griddle.jpg";
+import eqCoffee from "@/assets/equipment-coffee.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -69,6 +76,14 @@ const audiences = [
   { label: "Ресторан 120–250 мест", href: "/solutions/equipment" },
   { label: "Сеть 5–10+ точек", href: "/solutions/iot" },
   { label: "Кухня‑сервис / столовая", href: "/solutions/equipment" },
+];
+
+const carouselItems = [
+  { img: eqOven, title: "Пароконвектоматы" },
+  { img: eqFridge, title: "Холодильное оборудование" },
+  { img: eqGriddle, title: "Тепловое оборудование" },
+  { img: eqDish, title: "Посудомоечные машины" },
+  { img: eqCoffee, title: "Кофейное оборудование" },
 ];
 
 export default function HomePage() {
@@ -143,6 +158,51 @@ export default function HomePage() {
                 </motion.div>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Equipment Carousel */}
+      <section className="bg-foreground text-primary-foreground py-14 md:py-20">
+        <div className="container-tight px-4 md:px-8">
+          <div className="text-center mb-10">
+            <p className="text-accent font-display font-semibold text-sm tracking-wider uppercase mb-3">Топовое оборудование</p>
+            <h2 className="font-display font-bold text-3xl md:text-4xl mb-3">Что мы поставляем</h2>
+            <p className="text-primary-foreground/70 max-w-xl mx-auto">
+              Профессиональные линейки тепла, холода, посудомойки и бара — с гарантией, монтажом и сервисом.
+            </p>
+          </div>
+          <Carousel
+            opts={{ loop: true, align: "start" }}
+            plugins={[Autoplay({ delay: 3500, stopOnInteraction: false })]}
+            className="w-full"
+          >
+            <CarouselContent>
+              {carouselItems.map((it) => (
+                <CarouselItem key={it.title} className="md:basis-1/2 lg:basis-1/3">
+                  <div className="rounded-2xl overflow-hidden border border-primary-foreground/10 bg-card group">
+                    <div className="aspect-[4/3] overflow-hidden">
+                      <img
+                        src={it.img}
+                        alt={it.title}
+                        width={800}
+                        height={600}
+                        loading="lazy"
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                    </div>
+                    <div className="p-5 bg-card text-foreground">
+                      <p className="font-display font-bold">{it.title}</p>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+          <div className="text-center mt-8">
+            <Link to="/solutions/equipment">
+              <Button variant="hero" size="lg">Посмотреть всё оборудование <ArrowRight className="w-4 h-4 ml-1" /></Button>
+            </Link>
           </div>
         </div>
       </section>
