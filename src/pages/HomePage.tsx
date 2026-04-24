@@ -53,22 +53,25 @@ const stats = [
   { value: "350+", label: "успешных проектов в HoReCa", icon: ShieldCheck },
 ];
 
-const projects = [
-  {
-    title: "Пекарня «Лепим‑Варим»",
-    desc: "Комплексное оснащение пекарни: тепловое и холодильное оборудование, проект расстановки, запуск за 3 недели.",
-    result: "Запуск с нуля за 21 день",
-  },
-  {
-    title: "Корнер «Street Wok»",
-    desc: "Готовое решение для фуд-корнера: компактное тепловое оборудование, вытяжка, проект мощностей.",
-    result: "Окупаемость за 4 месяца",
-  },
-  {
-    title: "Франшиза «Burger Lab»",
-    desc: "Унифицированный комплект оборудования для 12 точек сети: стандартизация, логистика, монтаж.",
-    result: "12 точек за 6 месяцев",
-  },
+const clients = [
+  "Лепим и Варим",
+  "Surf Coffee",
+  "KFC",
+  "Ростикс",
+  "Dubai",
+  "Мята Lounge",
+  "Pepe Кухня",
+  "Rockets Coffee",
+  "Комод Club",
+  "Руки Вверх Бар",
+  "Soho Rooms",
+  "Domo Delivery",
+  "Театр Моссовета",
+  "Domino's Pizza",
+  "Pizza Hut",
+  "Foot Bend",
+  "Достоевский",
+  "Edji Sushi",
 ];
 
 const audiences = [
@@ -98,12 +101,8 @@ export default function HomePage() {
             <motion.p custom={0} variants={fadeUp} className="text-accent font-display font-semibold text-sm tracking-wider uppercase mb-4">
               Интегратор умной кухни для HoReCa
             </motion.p>
-            <motion.h1 custom={1} variants={fadeUp} className="text-4xl md:text-6xl font-display font-bold leading-tight mb-6">
-              Оборудование для ресторанов, кафе и столовых{" "}
-              <span className="text-accent">от Rest‑Tech</span>
-            </motion.h1>
-            <motion.p custom={2} variants={fadeUp} className="text-lg md:text-xl text-primary-foreground/75 mb-8 max-w-2xl">
-              Профессиональное оборудование + ресторанные технологии и поддержка после продажи. Снижаем операционные расходы на 15–40 %.
+            <motion.p custom={2} variants={fadeUp} className="text-lg md:text-xl text-primary-foreground/85 mb-8 max-w-2xl">
+              <span className="text-primary-foreground font-display font-bold">Rest‑Tech</span> — профессиональное оборудование и технологии для ресторанов, кафе и столовых. Снижаем операционные расходы на <span className="text-accent font-semibold">15–40 %</span> благодаря экспертной поддержке и комплексным решениям на каждом этапе.
             </motion.p>
             <motion.div custom={3} variants={fadeUp} className="flex flex-wrap gap-4">
               <Link to="/solutions/equipment">
@@ -235,25 +234,35 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Our Projects */}
+      {/* Our Projects — Clients logo wall */}
       <section id="projects" className="section-padding bg-background scroll-mt-20">
         <div className="container-tight">
-          <h2 className="font-display font-bold text-3xl md:text-4xl text-foreground mb-10 text-center">Наши проекты</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {projects.map((p, i) => (
-              <motion.div key={p.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.12 }} className="bg-card rounded-2xl p-6 shadow-card border border-border">
-                <h3 className="font-display font-bold text-lg text-foreground mb-3">{p.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">{p.desc}</p>
-                <div className="bg-accent/10 rounded-lg px-4 py-2">
-                  <p className="text-sm font-semibold text-accent">{p.result}</p>
-                </div>
+          <div className="text-center mb-10">
+            <h2 className="font-display font-bold text-3xl md:text-4xl text-foreground mb-3">Наши проекты</h2>
+            <p className="text-muted-foreground max-w-xl mx-auto">
+              С нами работают сети, рестораны, бары, кофейни и службы доставки.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            {clients.map((name, i) => (
+              <motion.div
+                key={name}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: (i % 6) * 0.05 }}
+                className="aspect-[3/2] bg-card rounded-2xl border border-border shadow-card flex items-center justify-center px-4 text-center hover:border-accent/40 hover:shadow-elevated transition-all duration-300 group"
+              >
+                <span className="font-display font-bold text-foreground/80 text-sm md:text-base group-hover:text-accent transition-colors">
+                  {name}
+                </span>
               </motion.div>
             ))}
           </div>
-          <div className="text-center mt-8">
+          <div className="text-center mt-10">
             <Link to="/cases">
               <Button variant="accent" size="lg">
-                Смотреть все готовые решения <ArrowRight className="w-4 h-4 ml-1" />
+                Смотреть готовые решения <ArrowRight className="w-4 h-4 ml-1" />
               </Button>
             </Link>
           </div>
