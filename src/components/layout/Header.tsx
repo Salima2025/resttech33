@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import logoMark from "@/assets/rest-tech-mark.png";
 
 const solutions = [
   { label: "Оборудование", href: "/solutions/equipment", desc: "Новое и б/у для HoReCa" },
@@ -28,10 +29,12 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
       <div className="container-tight flex items-center justify-between h-16 px-4 md:px-8">
         <Link to="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center">
-            <span className="text-accent-foreground font-display font-bold text-sm">RT</span>
-          </div>
-          <span className="font-display font-bold text-lg text-foreground">Rest-Tech</span>
+          <img src={logoMark} alt="Rest-Tech" width={36} height={36} className="w-9 h-9 object-contain" />
+          <span className="font-display font-bold text-lg leading-none tracking-tight">
+            <span className="text-[hsl(217_100%_54%)]">REST</span>
+            <span className="text-foreground">-</span>
+            <span className="text-accent">TECH</span>
+          </span>
         </Link>
 
         {/* Desktop nav */}

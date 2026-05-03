@@ -98,11 +98,17 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-foreground/80" />
         <div className="container-tight relative z-10 py-20 md:py-32 px-4 md:px-8">
           <motion.div initial="hidden" animate="visible" className="max-w-3xl">
-            <motion.p custom={0} variants={fadeUp} className="text-accent font-display font-semibold text-sm tracking-wider uppercase mb-4">
+            <motion.h1
+              custom={0}
+              variants={fadeUp}
+              className="font-display font-bold leading-[0.95] tracking-tight mb-6 text-[clamp(3.5rem,11vw,9rem)]"
+            >
+              <span className="text-[hsl(217_100%_60%)]">REST</span>
+              <span className="text-primary-foreground">-</span>
+              <span className="text-accent">TECH</span>
+            </motion.h1>
+            <motion.p custom={1} variants={fadeUp} className="text-2xl md:text-3xl font-display font-semibold text-primary-foreground mb-8">
               Интегратор умной кухни для HoReCa
-            </motion.p>
-            <motion.p custom={2} variants={fadeUp} className="text-lg md:text-xl text-primary-foreground/85 mb-8 max-w-2xl">
-              <span className="text-primary-foreground font-display font-bold">Rest‑Tech</span> — профессиональное оборудование и технологии для ресторанов, кафе и столовых. Снижаем операционные расходы на <span className="text-accent font-semibold">15–40 %</span> благодаря экспертной поддержке и комплексным решениям на каждом этапе.
             </motion.p>
             <motion.div custom={3} variants={fadeUp} className="flex flex-wrap gap-4">
               <Link to="/solutions/equipment">
@@ -121,6 +127,9 @@ export default function HomePage() {
       {/* Stats */}
       <section className="bg-card border-b border-border">
         <div className="container-tight px-4 md:px-8 py-10 md:py-14">
+          <p className="text-base md:text-lg text-muted-foreground max-w-3xl mb-8 md:mb-10">
+            Профессиональное оборудование и технологии для ресторанов, кафе и столовых. Снижаем операционные расходы на <span className="text-accent font-semibold">15–40 %</span> благодаря экспертной поддержке и комплексным решениям на каждом этапе.
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {stats.map((stat, i) => (
               <motion.div key={stat.label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="flex items-center gap-4">
