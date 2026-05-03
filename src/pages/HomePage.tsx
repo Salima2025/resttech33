@@ -104,11 +104,11 @@ export default function HomePage() {
               <img
                 src={logoMark}
                 alt="Rest-Tech logo mark"
-                width={140}
-                height={140}
-                className="w-24 h-24 md:w-36 md:h-36 object-contain drop-shadow-[0_10px_30px_rgba(0,0,0,0.45)]"
+                width={70}
+                height={70}
+                className="w-12 h-12 md:w-18 md:h-18 object-contain drop-shadow-[0_10px_30px_rgba(0,0,0,0.45)]"
               />
-              <h1 className="font-display font-extrabold leading-[0.9] tracking-tight text-[clamp(3rem,9vw,7rem)]">
+              <h1 className="font-display font-extrabold leading-[0.9] tracking-tight text-[clamp(1.5rem,4.5vw,3.5rem)]">
                 <span className="text-[hsl(217_100%_60%)]">REST</span>
                 <span className="text-primary-foreground">-</span>
                 <span className="text-accent">TECH</span>
