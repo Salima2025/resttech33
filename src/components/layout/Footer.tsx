@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import logoMark from "@/assets/rest-tech-mark.png";
 
 const footerLinks = {
   "Решения": [
@@ -28,10 +29,12 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center">
-                <span className="text-accent-foreground font-display font-bold text-sm">RT</span>
-              </div>
-              <span className="font-display font-bold text-lg">Rest-Tech</span>
+              <img src={logoMark} alt="Rest-Tech" width={36} height={36} loading="lazy" className="w-9 h-9 object-contain" />
+              <span className="font-display font-bold text-lg leading-none">
+                <span className="text-[hsl(217_100%_60%)]">REST</span>
+                <span>-</span>
+                <span className="text-accent">TECH</span>
+              </span>
             </div>
             <p className="text-sm text-primary-foreground/70 max-w-[240px]">
               Интегратор умной кухни для HoReCa. Оборудование, ресторанные технологии, консалтинг.

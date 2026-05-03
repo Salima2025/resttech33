@@ -5,6 +5,8 @@ import { ArrowRight, Wrench, Cpu, GraduationCap, TrendingDown, Clock, ShieldChec
 import Autoplay from "embla-carousel-autoplay";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import heroImg from "@/assets/hero-kitchen.jpg";
+import logoFull from "@/assets/rest-tech-logo-full.png";
+import logoMark from "@/assets/rest-tech-mark.png";
 import eqOven from "@/assets/equipment-combi-oven.jpg";
 import eqFridge from "@/assets/equipment-fridge.jpg";
 import eqDish from "@/assets/equipment-dishwasher.jpg";
@@ -98,15 +100,20 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-foreground/80" />
         <div className="container-tight relative z-10 py-20 md:py-32 px-4 md:px-8">
           <motion.div initial="hidden" animate="visible" className="max-w-3xl">
-            <motion.h1
-              custom={0}
-              variants={fadeUp}
-              className="font-display font-bold leading-[0.95] tracking-tight mb-6 text-[clamp(3.5rem,11vw,9rem)]"
-            >
-              <span className="text-[hsl(217_100%_60%)]">REST</span>
-              <span className="text-primary-foreground">-</span>
-              <span className="text-accent">TECH</span>
-            </motion.h1>
+            <motion.div custom={0} variants={fadeUp} className="mb-8 flex items-center gap-5">
+              <img
+                src={logoMark}
+                alt="Rest-Tech logo mark"
+                width={140}
+                height={140}
+                className="w-24 h-24 md:w-36 md:h-36 object-contain drop-shadow-[0_10px_30px_rgba(0,0,0,0.45)]"
+              />
+              <h1 className="font-display font-extrabold leading-[0.9] tracking-tight text-[clamp(3rem,9vw,7rem)]">
+                <span className="text-[hsl(217_100%_60%)]">REST</span>
+                <span className="text-primary-foreground">-</span>
+                <span className="text-accent">TECH</span>
+              </h1>
+            </motion.div>
             <motion.p custom={1} variants={fadeUp} className="text-2xl md:text-3xl font-display font-semibold text-primary-foreground mb-8">
               Интегратор умной кухни для HoReCa
             </motion.p>
