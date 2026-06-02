@@ -7,7 +7,7 @@ const solutions = [
   { label: "Оборудование", href: "/solutions/equipment", desc: "Новое и б/у для HoReCa" },
   { label: "Спроектировать кухню", href: "/solutions/design", desc: "Расстановка, расчёт мощностей" },
   { label: "Ресторанные технологии", href: "/solutions/iot", desc: "IoT, мониторинг, автоматизация" },
-  { label: "Консалтинг & обучение", href: "/solutions/consulting", desc: "Аудит, обучение, внедрение" },
+  { label: "Консалтинг и обучение", href: "/solutions/consulting", desc: "Аудит, обучение, внедрение" },
 ];
 
 const navLinks = [

@@ -54,7 +54,7 @@ export default function ConsultingPage() {
     <>
       <section className="gradient-hero text-primary-foreground py-14 md:py-20">
         <div className="container-tight px-4 md:px-8">
-          <h1 className="font-display font-bold text-3xl md:text-5xl mb-4">Консалтинг & обучение</h1>
+          <h1 className="font-display font-bold text-3xl md:text-5xl mb-4">Консалтинг и обучение</h1>
           <p className="text-primary-foreground/70 text-lg max-w-2xl">
             Аудит кухни, обучение персонала и методические инструменты для максимальной эффективности.
           </p>
