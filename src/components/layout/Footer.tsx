@@ -4,7 +4,7 @@ const footerLinks = {
     { label: "Оборудование", href: "/solutions/equipment" },
     { label: "Спроектировать кухню", href: "/solutions/design" },
     { label: "Ресторанные технологии", href: "/solutions/iot" },
-    { label: "Консалтинг & обучение", href: "/solutions/consulting" },
+    { label: "Консалтинг и обучение", href: "/solutions/consulting" },
   ],
   "Компания": [
     { label: "О нас", href: "/about" },
