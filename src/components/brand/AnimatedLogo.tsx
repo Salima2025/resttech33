@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import logoBadge from "@/assets/rt-logo-badge.png";
+import logoAsset from "@/assets/rt-logo.png.asset.json";
 
 interface AnimatedLogoProps {
   size?: number;
@@ -19,13 +19,13 @@ export default function AnimatedLogo({ size = 56, className, loop = true }: Anim
     <motion.div
       className={className}
       style={{ width, height, display: "inline-block", position: "relative" }}
-      initial={{ opacity: 0, scale: 0.85, filter: "blur(6px)" }}
-      animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-      transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+      initial={{ opacity: 0, scale: 0.7, rotate: -8, filter: "blur(10px)" }}
+      animate={{ opacity: 1, scale: 1, rotate: 0, filter: "blur(0px)" }}
+      transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
       aria-label="Rest-Tech logo"
     >
       <motion.img
-        src={logoBadge}
+        src={logoAsset.url}
         alt="Rest-Tech"
         width={width}
         height={height}
@@ -42,7 +42,7 @@ export default function AnimatedLogo({ size = 56, className, loop = true }: Anim
               }
             : undefined
         }
-        transition={{ duration: 3.6, repeat: Infinity, ease: "easeInOut", delay: 1.1 }}
+        transition={{ duration: 3.6, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
       />
     </motion.div>
   );
