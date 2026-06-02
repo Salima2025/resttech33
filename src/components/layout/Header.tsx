@@ -3,8 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
-import AnimatedLogo from "@/components/brand/AnimatedLogo";
-
 const solutions = [
   { label: "Оборудование", href: "/solutions/equipment", desc: "Новое и б/у для HoReCa" },
   { label: "Спроектировать кухню", href: "/solutions/design", desc: "Расстановка, расчёт мощностей" },
@@ -29,7 +27,6 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
       <div className="container-tight flex items-center justify-between h-16 px-4 md:px-8">
         <Link to="/" className="flex items-center gap-2">
-          <AnimatedLogo size={36} className="w-9 h-9" />
           <span className="font-display font-bold text-lg leading-none tracking-tight">
             <span className="text-[hsl(217_100%_54%)]">REST</span>
             <span className="text-foreground">-</span>
