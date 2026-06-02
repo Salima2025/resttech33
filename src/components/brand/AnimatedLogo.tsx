@@ -18,7 +18,16 @@ export default function AnimatedLogo({ size = 56, className, loop = true }: Anim
   return (
     <motion.div
       className={className}
-      style={{ width, height, display: "inline-block", position: "relative" }}
+      style={{
+        width,
+        height,
+        display: "inline-block",
+        position: "relative",
+        background: "linear-gradient(135deg, #ffffff 0%, #e5e7eb 60%, #9ca3af 100%)",
+        borderRadius: Math.round(size * 0.15),
+        padding: Math.round(size * 0.06),
+        boxShadow: "0 2px 8px hsl(0 0% 0% / 0.15)",
+      }}
       initial={{ opacity: 0, scale: 0.7, rotate: -8, filter: "blur(10px)" }}
       animate={{ opacity: 1, scale: 1, rotate: 0, filter: "blur(0px)" }}
       transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
