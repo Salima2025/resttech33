@@ -6,6 +6,7 @@ import {
   TrendingDown, Eye, Users, LayoutDashboard, Brain, Settings2,
   Building2, Store, Truck, Wine, XCircle,
 } from "lucide-react";
+import Seo from "@/components/Seo";
 
 const stages = [
   { step: "01", title: "Аудит", desc: "Обследуем кухню, определяем точки потерь и приоритеты автоматизации." },

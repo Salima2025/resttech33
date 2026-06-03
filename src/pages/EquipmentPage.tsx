@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Wrench, ShieldCheck, Truck, ArrowRight, Flame, Snowflake, Zap, Coffee, WashingMachine, Recycle } from "lucide-react";
+import Seo from "@/components/Seo";
 
 const categories = [
   { name: "Тепловое оборудование", icon: Flame },
@@ -21,6 +22,11 @@ const benefits = [
 export default function EquipmentPage() {
   return (
     <>
+      <Seo
+        title="Оборудование для HoReCa — Rest-Tech"
+        description="Тепловое, холодильное, посудомоечное и барное оборудование для ресторанов и кафе. Гарантия до 3 лет, монтаж, доставка по РФ/СНГ."
+        path="/solutions/equipment"
+      />
       <section className="gradient-hero text-primary-foreground py-14 md:py-20">
         <div className="container-tight px-4 md:px-8">
           <h1 className="font-display font-bold text-3xl md:text-5xl mb-4">Оборудование для HoReCa</h1>

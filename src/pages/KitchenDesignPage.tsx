@@ -5,6 +5,7 @@ import { Ruler, Zap, LayoutGrid, ArrowRight, CheckCircle } from "lucide-react";
 import blueprintImg from "@/assets/kitchen-blueprint.jpg";
 import engineerImg from "@/assets/kitchen-design-engineer.jpg";
 import layout3dImg from "@/assets/kitchen-3d-layout.jpg";
+import Seo from "@/components/Seo";
 
 const steps = [
   { step: "01", title: "Замер и анализ", desc: "Выезд на объект или анализ планировки, определение требований к кухне." },
@@ -25,6 +26,11 @@ const benefits = [
 export default function KitchenDesignPage() {
   return (
     <>
+      <Seo
+        title="Проектирование кухни ресторана — Rest-Tech"
+        description="Проект расстановки, расчёт мощностей, монтаж и пусконаладка кухни под формат заведения. Экономия до 20% бюджета и соответствие нормам."
+        path="/solutions/design"
+      />
       <section className="relative overflow-hidden text-primary-foreground py-14 md:py-20">
         <img src={engineerImg} alt="Инженер проектирует кухню ресторана" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
         <div className="absolute inset-0 bg-foreground/80" />
