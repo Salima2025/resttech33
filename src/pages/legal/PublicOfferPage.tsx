@@ -2,7 +2,7 @@ import LegalLayout from "./LegalLayout";
 
 export default function PublicOfferPage() {
   return (
-    <LegalLayout title="Публичная оферта">
+    <LegalLayout title="Публичная оферта" path="/legal/offer">
       <p>
         Настоящий документ является публичной офертой ИП Ломакин Павел Константинович
         (ИНН 502728918918), далее «Исполнитель», в адрес любого физического или юридического лица,

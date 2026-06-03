@@ -2,7 +2,7 @@ import LegalLayout from "./LegalLayout";
 
 export default function MarketingConsentPage() {
   return (
-    <LegalLayout title="Согласие на получение рассылки">
+    <LegalLayout title="Согласие на получение рассылки" path="/legal/marketing-consent">
       <p>
         Подписываясь на рассылку Rest‑Tech, я даю согласие ИП Ломакин Павел Константинович
         (ИНН 502728918918) на получение информационных и рекламных сообщений по указанным каналам связи.
