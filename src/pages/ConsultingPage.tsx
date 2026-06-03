@@ -53,6 +53,11 @@ const funnel = ["Мини-аудит (бесплатно)", "Полноценн�
 export default function ConsultingPage() {
   return (
     <>
+      <Seo
+        title="Консалтинг и обучение для HoReCa — Rest-Tech"
+        description="Аудит кухни, подбор персонала, обучение и внедрение стандартов эффективности. Шефы, управляющие, линейный персонал — под запуск и операционку."
+        path="/solutions/consulting"
+      />
       <section className="gradient-hero text-primary-foreground py-14 md:py-20">
         <div className="container-tight px-4 md:px-8">
           <h1 className="font-display font-bold text-3xl md:text-5xl mb-4">Консалтинг и обучение</h1>

@@ -1,8 +1,28 @@
 import { ReactNode } from "react";
+import Seo from "@/components/Seo";
 
-export default function LegalLayout({ title, children }: { title: string; children: ReactNode }) {
+export default function LegalLayout({
+  title,
+  children,
+  seoTitle,
+  seoDescription,
+  path,
+}: {
+  title: string;
+  children: ReactNode;
+  seoTitle?: string;
+  seoDescription?: string;
+  path?: string;
+}) {
   return (
     <>
+      {path && (
+        <Seo
+          title={seoTitle ?? `${title} — Rest-Tech`}
+          description={seoDescription ?? `${title}. Правовые документы Rest-Tech — интегратора умной кухни для HoReCa.`}
+          path={path}
+        />
+      )}
       <section className="gradient-hero text-primary-foreground py-12 md:py-16">
         <div className="container-tight px-4 md:px-8">
           <h1 className="font-display font-bold text-2xl md:text-4xl">{title}</h1>
