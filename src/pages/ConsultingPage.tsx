@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { GraduationCap, ClipboardCheck, BookOpen, ArrowRight, CheckCircle, Users, UserCheck, Briefcase, Search } from "lucide-react";
+import Seo from "@/components/Seo";
 
 const staffing = [
   {
