@@ -69,8 +69,6 @@ export default function CalculatorPage() {
         description="Рассчитайте окупаемость оборудования и IoT для ресторана за 2 минуты. Прогноз экономии 15–40% операционных расходов."
         path="/calculator"
       />
-      {(
-    <>
       <section className="gradient-hero text-primary-foreground py-14 md:py-20">
         <div className="container-tight px-4 md:px-8">
           <h1 className="font-display font-bold text-3xl md:text-5xl mb-4">Рассчитайте экономию с Rest‑Tech</h1>
