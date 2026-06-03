@@ -19,6 +19,7 @@ export type CalcFormData = {
   name: string;
   email: string;
   phone: string;
+  consent: boolean;
 };
 
 const steps = ["Формат", "Параметры", "Проблемы", "Контакты", "Результат"];
@@ -36,6 +37,7 @@ export default function CalculatorPage() {
     name: "",
     email: "",
     phone: "",
+    consent: false,
   });
   const [submitted, setSubmitted] = useState(false);
 
@@ -50,7 +52,7 @@ export default function CalculatorPage() {
     if (step === 0) return !!form.format;
     if (step === 1) return !!form.guests && !!form.orders && !!form.avgCheck;
     if (step === 2) return form.problems.length > 0;
-    if (step === 3) return !!form.name && !!form.email;
+    if (step === 3) return !!form.name && !!form.email && form.consent;
     return true;
   };
 
