@@ -7,6 +7,7 @@ import CalculatorStepParams from "@/components/calculator/StepParams";
 import CalculatorStepProblems from "@/components/calculator/StepProblems";
 import CalculatorStepContacts from "@/components/calculator/StepContacts";
 import CalculatorResult from "@/components/calculator/Result";
+import Seo from "@/components/Seo";
 
 export type CalcFormData = {
   format: string;
@@ -62,6 +63,13 @@ export default function CalculatorPage() {
   };
 
   return (
+    <>
+      <Seo
+        title="Калькулятор инвестиций в умную кухню — Rest-Tech"
+        description="Рассчитайте окупаемость оборудования и IoT для ресторана за 2 минуты. Прогноз экономии 15–40% операционных расходов."
+        path="/calculator"
+      />
+      {(
     <>
       <section className="gradient-hero text-primary-foreground py-14 md:py-20">
         <div className="container-tight px-4 md:px-8">
