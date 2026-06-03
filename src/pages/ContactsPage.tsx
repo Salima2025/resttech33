@@ -5,6 +5,7 @@ import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
 
 export default function ContactsPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [consent, setConsent] = useState(false);
 
   return (
     <>
@@ -110,7 +111,21 @@ export default function ContactsPage() {
                     <textarea rows={3} placeholder="Расскажите о вашем проекте..."
                       className="w-full mt-1 px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent resize-none" />
                   </label>
-                  <Button variant="accent" size="lg" className="w-full" type="submit">
+                  <label className="flex items-start gap-3 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      required
+                      checked={consent}
+                      onChange={(e) => setConsent(e.target.checked)}
+                      className="mt-1 w-4 h-4 accent-accent flex-shrink-0"
+                    />
+                    <span className="text-xs text-muted-foreground leading-relaxed">
+                      Я даю согласие на обработку персональных данных в соответствии с{" "}
+                      <a href="/legal/privacy" className="text-accent hover:underline">политикой обработки ПДн</a> и{" "}
+                      <a href="/legal/personal-data-consent" className="text-accent hover:underline">согласием на обработку ПДн</a>.
+                    </span>
+                  </label>
+                  <Button variant="accent" size="lg" className="w-full" type="submit" disabled={!consent}>
                     <Send className="w-4 h-4 mr-2" /> Отправить заявку
                   </Button>
                 </form>

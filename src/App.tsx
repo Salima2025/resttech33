@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import CookieBanner from "@/components/CookieBanner";
 import HomePage from "./pages/HomePage";
 import CalculatorPage from "./pages/CalculatorPage";
 import CasesPage from "./pages/CasesPage";
@@ -50,6 +51,7 @@ const App = () => (
           </Routes>
         </main>
         <Footer />
+        <CookieBanner />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
