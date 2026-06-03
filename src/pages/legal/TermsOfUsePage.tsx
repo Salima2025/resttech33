@@ -2,7 +2,7 @@ import LegalLayout from "./LegalLayout";
 
 export default function TermsOfUsePage() {
   return (
-    <LegalLayout title="Пользовательское соглашение">
+    <LegalLayout title="Пользовательское соглашение" path="/legal/terms">
       <p>
         Настоящее соглашение регулирует отношения между ИП Ломакин Павел Константинович
         (ИНН 502728918918), далее «Администрация», и пользователями сайта Rest‑Tech.

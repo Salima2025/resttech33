@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
+import Seo from "@/components/Seo";
 
 export default function ContactsPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -9,6 +10,26 @@ export default function ContactsPage() {
 
   return (
     <>
+      <Seo
+        title="Контакты Rest-Tech — обсудим проект и подготовим КП"
+        description="Свяжитесь с Rest-Tech: телефон, email, адрес в Москве. Обсудим проект, подготовим коммерческое предложение для вашего HoReCa-заведения."
+        path="/contacts"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "Rest-Tech",
+          url: "https://resttech33.lovable.app/contacts",
+          telephone: "+7 (495) 123-45-67",
+          email: "info@rest-tech.ru",
+          priceRange: "$$$",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "ул. Примерная, д. 10, офис 205",
+            addressLocality: "Москва",
+            addressCountry: "RU",
+          },
+        }}
+      />
       <section className="gradient-hero text-primary-foreground py-14 md:py-20">
         <div className="container-tight px-4 md:px-8">
           <h1 className="font-display font-bold text-3xl md:text-5xl mb-4">Контакты</h1>

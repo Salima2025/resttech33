@@ -2,7 +2,7 @@ import LegalLayout from "./LegalLayout";
 
 export default function PersonalDataConsentPage() {
   return (
-    <LegalLayout title="Согласие на обработку персональных данных">
+    <LegalLayout title="Согласие на обработку персональных данных" path="/legal/personal-data-consent">
       <p>
         Отправляя форму на сайте Rest‑Tech, я свободно, своей волей и в своём интересе даю согласие
         ИП Ломакин Павел Константинович (ИНН 502728918918) на обработку моих персональных данных в

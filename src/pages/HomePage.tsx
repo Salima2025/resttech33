@@ -6,6 +6,7 @@ import Autoplay from "embla-carousel-autoplay";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import heroImg from "@/assets/hero-kitchen.jpg";
 import AnimatedLogo from "@/components/brand/AnimatedLogo";
+import Seo from "@/components/Seo";
 import eqOven from "@/assets/equipment-combi-oven.jpg";
 import eqFridge from "@/assets/equipment-fridge.jpg";
 import eqDish from "@/assets/equipment-dishwasher.jpg";
@@ -83,16 +84,30 @@ const audiences = [
 ];
 
 const carouselItems = [
-  { img: eqOven, title: "Пароконвектоматы" },
-  { img: eqFridge, title: "Холодильное оборудование" },
-  { img: eqGriddle, title: "Тепловое оборудование" },
-  { img: eqDish, title: "Посудомоечные машины" },
-  { img: eqCoffee, title: "Кофейное оборудование" },
+  { img: eqOven, title: "Пароконвектоматы", alt: "Профессиональные пароконвектоматы для ресторанов" },
+  { img: eqFridge, title: "Холодильное оборудование", alt: "Промышленное холодильное оборудование для кухни" },
+  { img: eqGriddle, title: "Тепловое оборудование", alt: "Промышленное тепловое оборудование HoReCa" },
+  { img: eqDish, title: "Посудомоечные машины", alt: "Профессиональные посудомоечные машины для ресторанов" },
+  { img: eqCoffee, title: "Кофейное оборудование", alt: "Профессиональное кофейное оборудование для кофеен" },
 ];
 
 export default function HomePage() {
   return (
     <>
+      <Seo
+        title="Rest-Tech — Интегратор умной кухни для HoReCa"
+        description="B2B-интегратор HoReCa: оборудование, IoT и консалтинг. Снижаем операционные расходы ресторанов на 15–40%. 350+ проектов."
+        path="/"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Rest-Tech",
+          url: "https://resttech33.lovable.app/",
+          logo: "https://resttech33.lovable.app/favicon.ico",
+          description: "B2B-интегратор умной кухни для HoReCa: оборудование, IoT и консалтинг.",
+          areaServed: "RU",
+        }}
+      />
       {/* Hero with photo background */}
       <section className="relative overflow-hidden text-primary-foreground">
         <img src={heroImg} alt="Профессиональная кухня ресторана" className="absolute inset-0 w-full h-full object-cover" />
@@ -108,6 +123,7 @@ export default function HomePage() {
                 <span className="text-[hsl(217_100%_60%)]">REST</span>
                 <span className="text-primary-foreground">-</span>
                 <span className="text-accent">TECH</span>
+                <span className="sr-only"> — Интегратор умной кухни для HoReCa</span>
               </h1>
             </motion.div>
             <motion.p custom={1} variants={fadeUp} className="text-2xl md:text-3xl font-display font-semibold text-primary-foreground mb-8">
@@ -195,7 +211,7 @@ export default function HomePage() {
                     <div className="aspect-[4/3] overflow-hidden">
                       <img
                         src={it.img}
-                        alt={it.title}
+                        alt={it.alt}
                         width={800}
                         height={600}
                         loading="lazy"

@@ -2,7 +2,7 @@ import LegalLayout from "./LegalLayout";
 
 export default function PrivacyPolicyPage() {
   return (
-    <LegalLayout title="Политика обработки персональных данных">
+    <LegalLayout title="Политика обработки персональных данных" path="/legal/privacy">
       <p>Действует с 01.01.2026. Оператор: ИП Ломакин Павел Константинович, ИНН 502728918918.</p>
 
       <h2>1. Общие положения</h2>

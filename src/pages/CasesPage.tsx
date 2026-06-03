@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight, Store, Utensils, Building2, ChefHat } from "lucide-react";
+import Seo from "@/components/Seo";
 
 const solutions = [
   {
@@ -63,6 +64,18 @@ const solutions = [
 export default function CasesPage() {
   return (
     <>
+      <Seo
+        title="Готовые решения для HoReCa — кейсы Rest-Tech"
+        description="Кейсы оснащения франшиз, корнеров, пекарен и ресторанов: комплекты оборудования, проекты расстановки, сроки запуска и результат."
+        path="/cases"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Готовые решения Rest-Tech",
+          description: "Кейсы оснащения заведений HoReCa: франшизы, корнеры, пекарни, рестораны.",
+          url: "https://resttech33.lovable.app/cases",
+        }}
+      />
       <section className="gradient-hero text-primary-foreground py-14 md:py-20">
         <div className="container-tight px-4 md:px-8">
           <h1 className="font-display font-bold text-3xl md:text-5xl mb-4">Готовые решения Rest‑Tech</h1>
@@ -74,6 +87,7 @@ export default function CasesPage() {
 
       <section className="section-padding bg-background">
         <div className="container-tight">
+          <h2 className="font-display font-bold text-2xl md:text-3xl text-foreground mb-6">Реализованные проекты по форматам</h2>
           {/* Filter tabs */}
           <div className="flex flex-wrap gap-2 mb-10">
             {["Все", "Франшиза", "Корнер", "Пекарня", "Ресторан"].map((tab) => (

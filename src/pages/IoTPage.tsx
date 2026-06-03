@@ -6,6 +6,7 @@ import {
   TrendingDown, Eye, Users, LayoutDashboard, Brain, Settings2,
   Building2, Store, Truck, Wine, XCircle,
 } from "lucide-react";
+import Seo from "@/components/Seo";
 
 const stages = [
   { step: "01", title: "Аудит", desc: "Обследуем кухню, определяем точки потерь и приоритеты автоматизации." },
@@ -93,6 +94,11 @@ const comparison = [
 export default function IoTPage() {
   return (
     <>
+      <Seo
+        title="Ресторанные технологии и IoT-мониторинг — Rest-Tech"
+        description="Операционная система кухни: IoT-датчики, мониторинг оборудования, тревоги, интеграция с iiko, r_keeper, Poster. Окупаемость 6–18 мес."
+        path="/solutions/iot"
+      />
       <section className="gradient-hero text-primary-foreground py-14 md:py-20">
         <div className="container-tight px-4 md:px-8">
           <p className="text-accent font-display font-semibold text-sm tracking-wider uppercase mb-4">Rest‑Tech</p>
