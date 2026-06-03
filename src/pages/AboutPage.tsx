@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Target, Users, Award, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import Seo from "@/components/Seo";
 
 const values = [
   { icon: Target, title: "Результат в цифрах", desc: "Мы измеряем успех проекта в процентах экономии и сроках окупаемости — не в красивых слайдах." },
@@ -12,6 +13,11 @@ const values = [
 export default function AboutPage() {
   return (
     <>
+      <Seo
+        title="О компании Rest-Tech — интегратор умной кухни"
+        description="Rest-Tech — команда инженеров, шефов и IT-специалистов с опытом в HoReCa от 5 лет. 350+ проектов, средняя экономия клиентов 25%."
+        path="/about"
+      />
       <section className="gradient-hero text-primary-foreground py-14 md:py-20">
         <div className="container-tight px-4 md:px-8">
           <h1 className="font-display font-bold text-3xl md:text-5xl mb-4">О компании</h1>
