@@ -25,6 +25,19 @@ export default function CalculatorStepContacts({ form, setForm }: Props) {
           <span className="text-sm font-medium text-foreground">Телефон</span>
           <input type="tel" value={form.phone} onChange={(e) => setForm((d) => ({ ...d, phone: e.target.value }))} placeholder="+7 (999) 123-45-67" className={inputClass} />
         </label>
+        <label className="flex items-start gap-3 cursor-pointer pt-2">
+          <input
+            type="checkbox"
+            checked={form.consent}
+            onChange={(e) => setForm((d) => ({ ...d, consent: e.target.checked }))}
+            className="mt-1 w-4 h-4 accent-accent flex-shrink-0"
+          />
+          <span className="text-xs text-muted-foreground leading-relaxed">
+            Я даю согласие на обработку персональных данных в соответствии с{" "}
+            <a href="/legal/privacy" className="text-accent hover:underline">политикой обработки ПДн</a> и{" "}
+            <a href="/legal/personal-data-consent" className="text-accent hover:underline">согласием на обработку ПДн</a>.
+          </span>
+        </label>
       </div>
       <p className="text-xs text-muted-foreground mt-4">Ответим в течение 24 часов, без спама.</p>
     </div>
