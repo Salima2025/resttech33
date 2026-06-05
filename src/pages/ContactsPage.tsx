@@ -20,7 +20,7 @@ export default function ContactsPage() {
           name: "Rest-Tech",
           url: "https://resttech33.lovable.app/contacts",
           telephone: "+7 (916) 603-40-63",
-          email: "info@rest-tech.ru",
+          email: "info@rest-tech.pro",
           priceRange: "$$$",
           address: {
             "@type": "PostalAddress",
@@ -60,7 +60,7 @@ export default function ContactsPage() {
                   </div>
                   <div>
                     <p className="font-semibold text-sm text-foreground">Email</p>
-                    <p className="text-sm text-muted-foreground">info@rest-tech.ru</p>
+                    <p className="text-sm text-muted-foreground">info@rest-tech.pro</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
