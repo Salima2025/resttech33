@@ -24,13 +24,13 @@ export default function MarketingConsentPage() {
       </ul>
 
       <h2>Отзыв согласия</h2>
-      <p>Отписаться от рассылки можно в любой момент по ссылке в письме или письмом на info@resttech.ru.</p>
+      <p>Отписаться от рассылки можно в любой момент по ссылке в письме или письмом на info@rest-tech.pro.</p>
 
       <h2>Реквизиты оператора</h2>
       <p>
         ИП Ломакин Павел Константинович<br />
         ИНН: 502728918918<br />
-        Email: info@resttech.ru
+        Email: info@rest-tech.pro
       </p>
     </LegalLayout>
   );

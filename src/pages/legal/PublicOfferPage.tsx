@@ -28,7 +28,7 @@ export default function PublicOfferPage() {
       <p>
         ИП Ломакин Павел Константинович<br />
         ИНН: 502728918918<br />
-        Email: info@resttech.ru
+        Email: info@rest-tech.pro
       </p>
     </LegalLayout>
   );
