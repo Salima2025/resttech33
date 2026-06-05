@@ -24,7 +24,6 @@ export default function ContactsPage() {
           priceRange: "$$$",
           address: {
             "@type": "PostalAddress",
-            streetAddress: "ул. Примерная, д. 10, офис 205",
             addressLocality: "Москва",
             addressCountry: "RU",
           },
@@ -70,7 +69,7 @@ export default function ContactsPage() {
                   </div>
                   <div>
                     <p className="font-semibold text-sm text-foreground">Адрес</p>
-                    <p className="text-sm text-muted-foreground">Москва, ул. Примерная, д. 10, офис 205</p>
+                    <p className="text-sm text-muted-foreground">Москва</p>
                   </div>
                 </div>
               </div>
