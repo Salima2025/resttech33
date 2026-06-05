@@ -23,7 +23,7 @@ export default function EquipmentPage() {
   return (
     <>
       <Seo
-        title="Оборудование для HoReCa — Rest-Tech"
+        title="Оборудование для HoReCa – Rest-Tech"
         description="Тепловое, холодильное, посудомоечное и барное оборудование для ресторанов и кафе. Гарантия до 3 лет, монтаж, доставка по РФ/СНГ."
         path="/solutions/equipment"
       />
@@ -31,7 +31,7 @@ export default function EquipmentPage() {
         <div className="container-tight px-4 md:px-8">
           <h1 className="font-display font-bold text-3xl md:text-5xl mb-4">Оборудование для HoReCa</h1>
           <p className="text-primary-foreground/70 text-lg max-w-2xl">
-            Новое и б/у оборудование с проверкой, гарантией и полным сервисом — от печей до холодильных систем.
+            Новое и б/у оборудование с проверкой, гарантией и полным сервисом – от печей до холодильных систем.
           </p>
         </div>
       </section>
@@ -43,7 +43,7 @@ export default function EquipmentPage() {
             <div>
               <h2 className="font-display font-bold text-2xl text-foreground mb-4">Проблема</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Выбор оборудования для кухни — это риск: несовместимость, перерасход бюджета, поставщики без гарантий, простои из-за поломок. Особенно если вы открываете новую точку или масштабируете сеть.
+                Выбор оборудования для кухни – это риск: несовместимость, перерасход бюджета, поставщики без гарантий, простои из-за поломок. Особенно если вы открываете новую точку или масштабируете сеть.
               </p>
             </div>
             <div>
@@ -91,7 +91,7 @@ export default function EquipmentPage() {
           <div className="bg-navy rounded-2xl p-8 text-primary-foreground">
             <h3 className="font-display font-bold text-xl mb-3">Хотите не просто купить, а автоматизировать кухню?</h3>
             <p className="text-primary-foreground/70 text-sm mb-5">
-              Сравните вариант комплексного внедрения ресторанных технологий — оборудование станет частью умной системы.
+              Сравните вариант комплексного внедрения ресторанных технологий – оборудование станет частью умной системы.
             </p>
             <Link to="/solutions/iot">
               <Button variant="hero" size="lg">

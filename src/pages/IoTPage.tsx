@@ -17,7 +17,7 @@ const stages = [
 ];
 
 const features = [
-  { icon: Wifi, title: "Мониторинг оборудования", desc: "Температура, нагрузка, время работы — всё в реальном времени." },
+  { icon: Wifi, title: "Мониторинг оборудования", desc: "Температура, нагрузка, время работы – всё в реальном времени." },
   { icon: Bell, title: "Тревоги и уведомления", desc: "Мгновенные оповещения о сбоях, перегреве, отклонениях." },
   { icon: BarChart3, title: "Аналитика и отчёты", desc: "Дашборды для управляющих: расходы, эффективность, KPI кухни." },
   { icon: Cpu, title: "Интеграция с CRM/POS", desc: "Связь с вашими системами учёта, R-Keeper, iiko и др." },
@@ -26,7 +26,7 @@ const features = [
 const painPoints = [
   "Вы не знаете, где теряются деньги",
   "Персонал работает «по-своему»",
-  "Ошибки и задержки — норма",
+  "Ошибки и задержки – норма",
   "Контроль = постоянное присутствие",
 ];
 
@@ -39,9 +39,9 @@ const moneyLeaks = [
 
 const howItWorks = [
   { icon: Eye, title: "Контроль процессов", desc: "Отслеживание всех этапов приготовления в реальном времени." },
-  { icon: Brain, title: "AI-аналитика", desc: "Где теряются деньги, где допускаются ошибки — без догадок." },
+  { icon: Brain, title: "AI-аналитика", desc: "Где теряются деньги, где допускаются ошибки – без догадок." },
   { icon: Users, title: "Управление персоналом", desc: "Стандарты вместо «как привыкли». Каждый знает свою задачу." },
-  { icon: LayoutDashboard, title: "Дашборд собственника", desc: "Все процессы и KPI в одном месте — на телефоне." },
+  { icon: LayoutDashboard, title: "Дашборд собственника", desc: "Все процессы и KPI в одном месте – на телефоне." },
 ];
 
 const results = [
@@ -95,7 +95,7 @@ export default function IoTPage() {
   return (
     <>
       <Seo
-        title="Ресторанные технологии и IoT-мониторинг — Rest-Tech"
+        title="Ресторанные технологии и IoT-мониторинг – Rest-Tech"
         description="Операционная система кухни: IoT-датчики, мониторинг оборудования, тревоги, интеграция с iiko, r_keeper, Poster. Окупаемость 6–18 мес."
         path="/solutions/iot"
       />
@@ -176,7 +176,7 @@ export default function IoTPage() {
             </div>
             <div className="max-w-3xl mx-auto bg-destructive/5 border border-destructive/20 rounded-xl p-4 text-center">
               <p className="text-sm font-semibold text-foreground">
-                Важно: чем больше точек — тем больше хаоса.
+                Важно: чем больше точек – тем больше хаоса.
               </p>
             </div>
           </div>
@@ -206,7 +206,7 @@ export default function IoTPage() {
               РЕШЕНИЕ
             </div>
             <h2 className="font-display font-bold text-3xl md:text-4xl text-foreground mb-4">
-              Rest‑Tech — операционная система кухни
+              Rest‑Tech – операционная система кухни
             </h2>
             <p className="text-muted-foreground text-lg">
               Мы превращаем кухню в управляемую систему, где каждый процесс прозрачен, измерим и автоматизирован.
@@ -268,7 +268,7 @@ export default function IoTPage() {
             ))}
           </div>
 
-          {/* AUDIENCE — кому это нужно */}
+          {/* AUDIENCE – кому это нужно */}
           <h2 className="font-display font-bold text-2xl md:text-3xl text-foreground mb-8 text-center">Кому это нужно</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
             {audience.map((a, i) => (
@@ -326,7 +326,7 @@ export default function IoTPage() {
               Новый стандарт управления рестораном
             </h2>
             <p className="text-muted-foreground text-center mb-8 max-w-2xl mx-auto text-sm">
-              Вы теряете деньги — мы показываем где. Учётные системы считают прошлое, Rest‑Tech управляет настоящим.
+              Вы теряете деньги – мы показываем где. Учётные системы считают прошлое, Rest‑Tech управляет настоящим.
             </p>
             <div className="grid md:grid-cols-2 gap-4 max-w-3xl mx-auto">
               <div className="bg-card rounded-xl p-5 border border-border">
@@ -340,7 +340,7 @@ export default function IoTPage() {
                   ))}
                 </div>
                 <p className="text-xs text-muted-foreground mt-4 pt-4 border-t border-border">
-                  Считают прошлое — отчёт за вчерашний день.
+                  Считают прошлое – отчёт за вчерашний день.
                 </p>
               </div>
               <div className="bg-foreground text-primary-foreground rounded-xl p-5 border border-accent/30 shadow-elevated">
@@ -358,7 +358,7 @@ export default function IoTPage() {
             </div>
           </div>
 
-          {/* OFFER — Try free */}
+          {/* OFFER – Try free */}
           <div className="mb-16 gradient-hero text-primary-foreground rounded-2xl p-8 md:p-12 text-center">
             <p className="text-accent font-display font-semibold text-sm tracking-wider uppercase mb-3">Оффер</p>
             <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">Попробуйте бесплатно</h2>
@@ -370,7 +370,7 @@ export default function IoTPage() {
             </Link>
           </div>
 
-          {/* FINAL — дожим */}
+          {/* FINAL – дожим */}
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="font-display font-bold text-2xl md:text-3xl text-foreground mb-4 leading-tight">
               Вы можете продолжать управлять кухней <span className="text-muted-foreground">вручную</span>

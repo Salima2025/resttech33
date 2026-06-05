@@ -53,7 +53,7 @@ export default function CalculatorResult({ form }: Props) {
           {form.problems.map((p) => (
             <li key={p} className="flex items-start gap-2">
               <CheckCircle className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
-              <span>{p} — решается с помощью {p.includes("оборудов") || p.includes("простои") || p.includes("Простои") ? "модернизации оборудования и IoT‑контроля" : p.includes("электро") ? "IoT‑мониторинга энергопотребления" : "автоматизации процессов Rest‑Tech"}</span>
+              <span>{p} – решается с помощью {p.includes("оборудов") || p.includes("простои") || p.includes("Простои") ? "модернизации оборудования и IoT‑контроля" : p.includes("электро") ? "IoT‑мониторинга энергопотребления" : "автоматизации процессов Rest‑Tech"}</span>
             </li>
           ))}
         </ul>

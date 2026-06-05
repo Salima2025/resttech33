@@ -65,7 +65,7 @@ export default function CalculatorPage() {
   return (
     <>
       <Seo
-        title="Калькулятор инвестиций в умную кухню — Rest-Tech"
+        title="Калькулятор инвестиций в умную кухню – Rest-Tech"
         description="Рассчитайте окупаемость оборудования и IoT для ресторана за 2 минуты. Прогноз экономии 15–40% операционных расходов."
         path="/calculator"
       />
