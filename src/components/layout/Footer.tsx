@@ -58,6 +58,9 @@ export default function Footer() {
           <div className="text-xs text-primary-foreground/50 space-y-1">
             <p>© 2026 Rest-Tech. Все права защищены.</p>
             <p>ИП Ломакин Павел Константинович · ИНН 502728918918</p>
+            <p>
+              <a href="tel:+79166034063" className="hover:text-accent transition-colors">+7 (916) 603-40-63</a>
+            </p>
           </div>
           <Link to="/calculator" className="text-sm font-semibold text-accent hover:text-orange-light transition-colors">
             Калькулятор инвестиций →

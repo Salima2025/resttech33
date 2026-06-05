@@ -5,7 +5,6 @@ import { ArrowRight, Wrench, Cpu, GraduationCap, TrendingDown, Clock, ShieldChec
 import Autoplay from "embla-carousel-autoplay";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import heroImg from "@/assets/hero-kitchen.jpg";
-import AnimatedLogo from "@/components/brand/AnimatedLogo";
 import Seo from "@/components/Seo";
 import eqOven from "@/assets/equipment-combi-oven.jpg";
 import eqFridge from "@/assets/equipment-fridge.jpg";
@@ -22,7 +21,7 @@ const services = [
   {
     icon: Wrench,
     title: "Оборудование",
-    desc: "Профессиональное оборудование для любого формата HoReCa — с гарантией, монтажом и обучением.",
+    desc: "Профессиональное оборудование для любого формата HoReCa – с гарантией, монтажом и обучением.",
     href: "/solutions/equipment",
     cta: "Посмотреть оборудование",
   },
@@ -36,7 +35,7 @@ const services = [
   {
     icon: Cpu,
     title: "Ресторанные технологии",
-    desc: "IoT-мониторинг, датчики, тревоги, интеграция с CRM/POS — полная автоматизация кухни «под ключ».",
+    desc: "IoT-мониторинг, датчики, тревоги, интеграция с CRM/POS – полная автоматизация кухни «под ключ».",
     href: "/solutions/iot",
     cta: "Узнать о технологиях",
   },
@@ -95,7 +94,7 @@ export default function HomePage() {
   return (
     <>
       <Seo
-        title="Rest-Tech — Интегратор умной кухни для HoReCa"
+        title="Rest-Tech – Интегратор умной кухни для HoReCa"
         description="B2B-интегратор HoReCa: оборудование, IoT и консалтинг. Снижаем операционные расходы ресторанов на 15–40%. 350+ проектов."
         path="/"
         jsonLd={{
@@ -115,15 +114,11 @@ export default function HomePage() {
         <div className="container-tight relative z-10 py-20 md:py-32 px-4 md:px-8">
           <motion.div initial="hidden" animate="visible" className="max-w-3xl">
             <motion.div custom={0} variants={fadeUp} className="mb-8 flex items-center gap-2 md:gap-3">
-              <AnimatedLogo
-                size={56}
-                className="w-10 h-10 md:w-14 md:h-14 drop-shadow-[0_6px_18px_rgba(0,0,0,0.45)]"
-              />
               <h1 className="font-display font-extrabold leading-none tracking-tight text-[clamp(1.5rem,4.5vw,3.5rem)]">
                 <span className="text-[hsl(217_100%_60%)]">REST</span>
                 <span className="text-primary-foreground">-</span>
                 <span className="text-accent">TECH</span>
-                <span className="sr-only"> — Интегратор умной кухни для HoReCa</span>
+                <span className="sr-only"> – Интегратор умной кухни для HoReCa</span>
               </h1>
             </motion.div>
             <motion.p custom={1} variants={fadeUp} className="text-2xl md:text-3xl font-display font-semibold text-primary-foreground mb-8">
@@ -196,7 +191,7 @@ export default function HomePage() {
             <p className="text-accent font-display font-semibold text-sm tracking-wider uppercase mb-3">Топовое оборудование</p>
             <h2 className="font-display font-bold text-3xl md:text-4xl mb-3">Что мы поставляем</h2>
             <p className="text-primary-foreground/70 max-w-xl mx-auto">
-              Профессиональные линейки тепла, холода, посудомойки и бара — с гарантией, монтажом и сервисом.
+              Профессиональные линейки тепла, холода, посудомойки и бара – с гарантией, монтажом и сервисом.
             </p>
           </div>
           <Carousel
@@ -262,7 +257,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Our Projects — Clients logo wall */}
+      {/* Our Projects – Clients logo wall */}
       <section id="projects" className="section-padding bg-background scroll-mt-20">
         <div className="container-tight">
           <div className="text-center mb-10">

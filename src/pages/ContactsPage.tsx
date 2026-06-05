@@ -11,7 +11,7 @@ export default function ContactsPage() {
   return (
     <>
       <Seo
-        title="Контакты Rest-Tech — обсудим проект и подготовим КП"
+        title="Контакты Rest-Tech – обсудим проект и подготовим КП"
         description="Свяжитесь с Rest-Tech: телефон, email, адрес в Москве. Обсудим проект, подготовим коммерческое предложение для вашего HoReCa-заведения."
         path="/contacts"
         jsonLd={{
@@ -19,7 +19,7 @@ export default function ContactsPage() {
           "@type": "LocalBusiness",
           name: "Rest-Tech",
           url: "https://resttech33.lovable.app/contacts",
-          telephone: "+7 (495) 123-45-67",
+          telephone: "+7 (916) 603-40-63",
           email: "info@rest-tech.ru",
           priceRange: "$$$",
           address: {
@@ -51,7 +51,7 @@ export default function ContactsPage() {
                   </div>
                   <div>
                     <p className="font-semibold text-sm text-foreground">Телефон</p>
-                    <p className="text-sm text-muted-foreground">+7 (495) 123-45-67</p>
+                    <p className="text-sm text-muted-foreground"><a href="tel:+79166034063" className="hover:text-accent transition-colors">+7 (916) 603-40-63</a></p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -77,8 +77,8 @@ export default function ContactsPage() {
               <div className="bg-muted/50 rounded-xl p-5">
                 <p className="text-sm text-foreground font-semibold mb-2">Быстрый доступ:</p>
                 <ul className="space-y-1.5 text-sm text-muted-foreground">
-                  <li>• <a href="/calculator" className="text-accent hover:underline">Калькулятор ROI</a> — оцените экономику за 2 минуты</li>
-                  <li>• <a href="/#projects" className="text-accent hover:underline">Наши проекты</a> — посмотрите результаты клиентов</li>
+                  <li>• <a href="/calculator" className="text-accent hover:underline">Калькулятор ROI</a> – оцените экономику за 2 минуты</li>
+                  <li>• <a href="/#projects" className="text-accent hover:underline">Наши проекты</a> – посмотрите результаты клиентов</li>
                 </ul>
               </div>
             </div>

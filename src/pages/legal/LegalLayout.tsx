@@ -18,8 +18,8 @@ export default function LegalLayout({
     <>
       {path && (
         <Seo
-          title={seoTitle ?? `${title} — Rest-Tech`}
-          description={seoDescription ?? `${title}. Правовые документы Rest-Tech — интегратора умной кухни для HoReCa.`}
+          title={seoTitle ?? `${title} – Rest-Tech`}
+          description={seoDescription ?? `${title}. Правовые документы Rest-Tech – интегратора умной кухни для HoReCa.`}
           path={path}
         />
       )}
