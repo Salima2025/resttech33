@@ -144,3 +144,20 @@
     box-shadow: var(--shadow-elevated);
   }
 }
+
+@layer utilities {
+  @keyframes marquee-x {
+    from { transform: translate3d(0, 0, 0); }
+    to   { transform: translate3d(-50%, 0, 0); }
+  }
+
+  .animate-marquee {
+    animation: marquee-x var(--marquee-duration, 40s) linear infinite;
+    will-change: transform;
+  }
+
+  .marquee-mask {
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+  }
+}
