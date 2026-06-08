@@ -246,22 +246,7 @@ export default function HomePage() {
               С нами работают сети, рестораны, бары, кофейни и службы доставки.
             </p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {clients.map((name, i) => (
-              <motion.div
-                key={name}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: (i % 6) * 0.05 }}
-                className="aspect-[3/2] bg-card rounded-2xl border border-border shadow-card flex items-center justify-center px-4 text-center hover:border-accent/40 hover:shadow-elevated transition-all duration-300 group"
-              >
-                <span className="font-display font-bold text-foreground/80 text-sm md:text-base group-hover:text-accent transition-colors">
-                  {name}
-                </span>
-              </motion.div>
-            ))}
-          </div>
+          <ClientsMarquee />
           <div className="text-center mt-10">
             <Link to="/cases">
               <Button variant="accent" size="lg">
