@@ -11,6 +11,7 @@ import eqFridge from "@/assets/equipment-fridge.jpg";
 import eqDish from "@/assets/equipment-dishwasher.jpg";
 import eqGriddle from "@/assets/equipment-griddle.jpg";
 import eqCoffee from "@/assets/equipment-coffee.jpg";
+import ClientsMarquee from "@/components/ClientsMarquee";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -52,27 +53,6 @@ const stats = [
   { value: "15–40%", label: "снижение операционных расходов", icon: TrendingDown },
   { value: "6–18 мес.", label: "срок окупаемости IoT‑системы", icon: Clock },
   { value: "350+", label: "успешных проектов в HoReCa", icon: ShieldCheck },
-];
-
-const clients = [
-  "Лепим и Варим",
-  "Surf Coffee",
-  "KFC",
-  "Ростикс",
-  "Dubai",
-  "Мята Lounge",
-  "Pepe Кухня",
-  "Rockets Coffee",
-  "Комод Club",
-  "Руки Вверх Бар",
-  "Soho Rooms",
-  "Domo Delivery",
-  "Театр Моссовета",
-  "Domino's Pizza",
-  "Pizza Hut",
-  "Foot Bend",
-  "Достоевский",
-  "Edji Sushi",
 ];
 
 const audiences = [
@@ -266,22 +246,7 @@ export default function HomePage() {
               С нами работают сети, рестораны, бары, кофейни и службы доставки.
             </p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {clients.map((name, i) => (
-              <motion.div
-                key={name}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: (i % 6) * 0.05 }}
-                className="aspect-[3/2] bg-card rounded-2xl border border-border shadow-card flex items-center justify-center px-4 text-center hover:border-accent/40 hover:shadow-elevated transition-all duration-300 group"
-              >
-                <span className="font-display font-bold text-foreground/80 text-sm md:text-base group-hover:text-accent transition-colors">
-                  {name}
-                </span>
-              </motion.div>
-            ))}
-          </div>
+          <ClientsMarquee />
           <div className="text-center mt-10">
             <Link to="/cases">
               <Button variant="accent" size="lg">
