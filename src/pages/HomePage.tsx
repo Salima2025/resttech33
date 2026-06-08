@@ -11,6 +11,7 @@ import eqFridge from "@/assets/equipment-fridge.jpg";
 import eqDish from "@/assets/equipment-dishwasher.jpg";
 import eqGriddle from "@/assets/equipment-griddle.jpg";
 import eqCoffee from "@/assets/equipment-coffee.jpg";
+import ClientsMarquee from "@/components/ClientsMarquee";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -52,27 +53,6 @@ const stats = [
   { value: "15–40%", label: "снижение операционных расходов", icon: TrendingDown },
   { value: "6–18 мес.", label: "срок окупаемости IoT‑системы", icon: Clock },
   { value: "350+", label: "успешных проектов в HoReCa", icon: ShieldCheck },
-];
-
-const clients = [
-  "Лепим и Варим",
-  "Surf Coffee",
-  "KFC",
-  "Ростикс",
-  "Dubai",
-  "Мята Lounge",
-  "Pepe Кухня",
-  "Rockets Coffee",
-  "Комод Club",
-  "Руки Вверх Бар",
-  "Soho Rooms",
-  "Domo Delivery",
-  "Театр Моссовета",
-  "Domino's Pizza",
-  "Pizza Hut",
-  "Foot Bend",
-  "Достоевский",
-  "Edji Sushi",
 ];
 
 const audiences = [
