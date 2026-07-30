@@ -89,7 +89,15 @@ export default function HomePage() {
       />
       {/* Hero with photo background */}
       <section className="relative overflow-hidden text-primary-foreground">
-        <img src={heroImg} alt="Профессиональная кухня ресторана" className="absolute inset-0 w-full h-full object-cover" />
+        <img
+          src={heroImg}
+          alt="Профессиональная кухня ресторана"
+          width={1920}
+          height={1080}
+          fetchPriority="high"
+          decoding="async"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
         <div className="absolute inset-0 bg-foreground/80" />
         <div className="container-tight relative z-10 py-20 md:py-32 px-4 md:px-8">
           <motion.div initial="hidden" animate="visible" className="max-w-3xl">
@@ -170,7 +178,7 @@ export default function HomePage() {
           <div className="text-center mb-10">
             <p className="text-accent font-display font-semibold text-sm tracking-wider uppercase mb-3">Топовое оборудование</p>
             <h2 className="font-display font-bold text-3xl md:text-4xl mb-3">Что мы поставляем</h2>
-            <p className="text-primary-foreground/70 max-w-xl mx-auto">
+            <p className="text-primary-foreground/90 max-w-xl mx-auto">
               Профессиональные линейки тепла, холода, посудомойки и бара – с гарантией, монтажом и сервисом.
             </p>
           </div>
@@ -261,7 +269,7 @@ export default function HomePage() {
       <section className="section-padding gradient-hero text-primary-foreground">
         <div className="container-tight text-center">
           <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">Готовы оптимизировать вашу кухню?</h2>
-          <p className="text-primary-foreground/70 text-lg mb-8 max-w-xl mx-auto">
+          <p className="text-primary-foreground/90 text-lg mb-8 max-w-xl mx-auto">
             Рассчитайте инвестиции за 2 минуты или получите готовый проект для вашего заведения.
           </p>
           <div className="flex flex-wrap justify-center gap-4">

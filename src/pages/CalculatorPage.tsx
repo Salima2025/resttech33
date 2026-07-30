@@ -72,7 +72,7 @@ export default function CalculatorPage() {
       <section className="gradient-hero text-primary-foreground py-14 md:py-20">
         <div className="container-tight px-4 md:px-8">
           <h1 className="font-display font-bold text-3xl md:text-5xl mb-4">Рассчитайте экономию с Rest‑Tech</h1>
-          <p className="text-primary-foreground/70 text-lg max-w-2xl">
+          <p className="text-primary-foreground/90 text-lg max-w-2xl">
             Получите расчёт снижения операционных расходов и срок окупаемости за 2 минуты.
           </p>
         </div>

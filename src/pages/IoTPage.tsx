@@ -103,7 +103,7 @@ export default function IoTPage() {
         <div className="container-tight px-4 md:px-8">
           <p className="text-accent font-display font-semibold text-sm tracking-wider uppercase mb-4">Rest‑Tech</p>
           <h1 className="font-display font-bold text-3xl md:text-5xl mb-4">Операционная система кухни</h1>
-          <p className="text-primary-foreground/75 text-lg max-w-2xl">
+          <p className="text-primary-foreground/90 text-lg max-w-2xl">
             Мы превращаем кухню в управляемую систему, где каждый процесс прозрачен, измерим и автоматизирован.
           </p>
         </div>

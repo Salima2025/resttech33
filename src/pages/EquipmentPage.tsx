@@ -30,7 +30,7 @@ export default function EquipmentPage() {
       <section className="gradient-hero text-primary-foreground py-14 md:py-20">
         <div className="container-tight px-4 md:px-8">
           <h1 className="font-display font-bold text-3xl md:text-5xl mb-4">Оборудование для HoReCa</h1>
-          <p className="text-primary-foreground/70 text-lg max-w-2xl">
+          <p className="text-primary-foreground/90 text-lg max-w-2xl">
             Новое и б/у оборудование с проверкой, гарантией и полным сервисом – от печей до холодильных систем.
           </p>
         </div>
@@ -90,7 +90,7 @@ export default function EquipmentPage() {
           {/* Cross-sell */}
           <div className="bg-navy rounded-2xl p-8 text-primary-foreground">
             <h3 className="font-display font-bold text-xl mb-3">Хотите не просто купить, а автоматизировать кухню?</h3>
-            <p className="text-primary-foreground/70 text-sm mb-5">
+            <p className="text-primary-foreground/90 text-sm mb-5">
               Сравните вариант комплексного внедрения ресторанных технологий – оборудование станет частью умной системы.
             </p>
             <Link to="/solutions/iot">

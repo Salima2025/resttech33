@@ -79,7 +79,7 @@ export default function CasesPage() {
       <section className="gradient-hero text-primary-foreground py-14 md:py-20">
         <div className="container-tight px-4 md:px-8">
           <h1 className="font-display font-bold text-3xl md:text-5xl mb-4">Готовые решения Rest‑Tech</h1>
-          <p className="text-primary-foreground/70 text-lg max-w-2xl">
+          <p className="text-primary-foreground/90 text-lg max-w-2xl">
             Франшизы, корнеры, пекарни – готовые комплекты оборудования с проектом расстановки и расчётом мощностей.
           </p>
         </div>
