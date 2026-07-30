@@ -33,7 +33,7 @@ export default function Footer() {
                 <span className="text-accent">TECH</span>
               </span>
             </div>
-            <p className="text-sm text-primary-foreground/70 max-w-[240px]">
+            <p className="text-sm text-primary-foreground/90 max-w-[240px]">
               Интегратор умной кухни для HoReCa. Оборудование, ресторанные технологии, консалтинг.
             </p>
           </div>
@@ -44,7 +44,7 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 {links.map((link) => (
                   <li key={link.label}>
-                    <Link to={link.href} className="text-sm text-primary-foreground/60 hover:text-accent transition-colors">
+                    <Link to={link.href} className="text-sm text-primary-foreground/90 hover:text-accent transition-colors">
                       {link.label}
                     </Link>
                   </li>
@@ -55,7 +55,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-primary-foreground/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="text-xs text-primary-foreground/50 space-y-1">
+          <div className="text-xs text-primary-foreground/90 space-y-1">
             <p>© 2026 Rest-Tech. Все права защищены.</p>
             <p>ИП Ломакин Павел Константинович · ИНН 502728918918</p>
             <p>
