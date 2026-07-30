@@ -3,10 +3,38 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
 import Seo from "@/components/Seo";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 export default function ContactsPage() {
   const [submitted, setSubmitted] = useState(false);
   const [consent, setConsent] = useState(false);
+  const [sending, setSending] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const fd = new FormData(e.currentTarget);
+    setSending(true);
+    try {
+      const { error } = await supabase.functions.invoke("send-lead", {
+        body: {
+          source: "Форма «Обсудить проект» (Контакты)",
+          name: fd.get("name"),
+          email: fd.get("email"),
+          phone: fd.get("phone"),
+          message: fd.get("message"),
+          fields: { "Формат заведения": fd.get("format") },
+        },
+      });
+      if (error) throw error;
+      setSubmitted(true);
+    } catch (err) {
+      console.error("send-lead failed:", err);
+      toast.error("Не удалось отправить заявку. Попробуйте позже или позвоните нам.");
+    } finally {
+      setSending(false);
+    }
+  };
 
   return (
     <>
@@ -96,28 +124,28 @@ export default function ContactsPage() {
                 </div>
               ) : (
                 <form
-                  onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}
+                  onSubmit={handleSubmit}
                   className="bg-card rounded-2xl p-6 md:p-8 border border-border shadow-card space-y-4"
                 >
                   <h3 className="font-display font-bold text-lg text-foreground mb-2">Обсудить проект</h3>
                   <label className="block">
                     <span className="text-sm font-medium text-foreground">Имя *</span>
-                    <input required type="text" placeholder="Алексей Иванов"
+                    <input required name="name" type="text" placeholder="Алексей Иванов"
                       className="w-full mt-1 px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent" />
                   </label>
                   <label className="block">
                     <span className="text-sm font-medium text-foreground">Email *</span>
-                    <input required type="email" placeholder="alex@restaurant.ru"
+                    <input required name="email" type="email" placeholder="alex@restaurant.ru"
                       className="w-full mt-1 px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent" />
                   </label>
                   <label className="block">
                     <span className="text-sm font-medium text-foreground">Телефон</span>
-                    <input type="tel" placeholder="+7 (999) 123-45-67"
+                    <input name="phone" type="tel" placeholder="+7 (999) 123-45-67"
                       className="w-full mt-1 px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent" />
                   </label>
                   <label className="block">
                     <span className="text-sm font-medium text-foreground">Формат заведения</span>
-                    <select className="w-full mt-1 px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-accent">
+                    <select name="format" className="w-full mt-1 px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-accent">
                       <option value="">Выберите</option>
                       <option>Кафе</option>
                       <option>Ресторан</option>
@@ -128,7 +156,7 @@ export default function ContactsPage() {
                   </label>
                   <label className="block">
                     <span className="text-sm font-medium text-foreground">Сообщение</span>
-                    <textarea rows={3} placeholder="Расскажите о вашем проекте..."
+                    <textarea name="message" rows={3} placeholder="Расскажите о вашем проекте..."
                       className="w-full mt-1 px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent resize-none" />
                   </label>
                   <label className="flex items-start gap-3 cursor-pointer">
@@ -145,8 +173,8 @@ export default function ContactsPage() {
                       <a href="/legal/personal-data-consent" className="text-accent hover:underline">согласием на обработку ПДн</a>.
                     </span>
                   </label>
-                  <Button variant="accent" size="lg" className="w-full" type="submit" disabled={!consent}>
-                    <Send className="w-4 h-4 mr-2" /> Отправить заявку
+                  <Button variant="accent" size="lg" className="w-full" type="submit" disabled={!consent || sending}>
+                    <Send className="w-4 h-4 mr-2" /> {sending ? "Отправляем…" : "Отправить заявку"}
                   </Button>
                 </form>
               )}
