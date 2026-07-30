@@ -8,6 +8,8 @@ import CalculatorStepProblems from "@/components/calculator/StepProblems";
 import CalculatorStepContacts from "@/components/calculator/StepContacts";
 import CalculatorResult from "@/components/calculator/Result";
 import Seo from "@/components/Seo";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 export type CalcFormData = {
   format: string;
@@ -41,6 +43,7 @@ export default function CalculatorPage() {
     consent: false,
   });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
 
   const toggleProblem = (p: string) => {
     setForm((f) => ({
@@ -57,9 +60,35 @@ export default function CalculatorPage() {
     return true;
   };
 
-  const handleSubmit = () => {
-    setSubmitted(true);
-    setStep(4);
+  const handleSubmit = async () => {
+    setSending(true);
+    try {
+      const { error } = await supabase.functions.invoke("send-lead", {
+        body: {
+          source: "Калькулятор инвестиций",
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          fields: {
+            "Формат": form.format,
+            "Гостей в день": form.guests,
+            "Заказов в день": form.orders,
+            "Средний чек": form.avgCheck,
+            "Себестоимость кухни": form.kitchenCheck,
+            "Точек": form.points,
+            "Проблемы": form.problems,
+          },
+        },
+      });
+      if (error) throw error;
+    } catch (err) {
+      console.error("send-lead failed:", err);
+      toast.error("Заявка не ушла в отдел продаж, но расчёт доступен. Свяжитесь с нами по телефону.");
+    } finally {
+      setSending(false);
+      setSubmitted(true);
+      setStep(4);
+    }
   };
 
   return (
@@ -128,8 +157,8 @@ export default function CalculatorPage() {
                   Далее <ArrowRight className="w-4 h-4 ml-1" />
                 </Button>
               ) : (
-                <Button variant="hero" onClick={handleSubmit} disabled={!canNext()}>
-                  Получить расчет <ArrowRight className="w-4 h-4 ml-1" />
+                <Button variant="hero" onClick={handleSubmit} disabled={!canNext() || sending}>
+                  {sending ? "Отправляем…" : "Получить расчет"} <ArrowRight className="w-4 h-4 ml-1" />
                 </Button>
               )}
             </div>
