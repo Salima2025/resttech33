@@ -89,7 +89,15 @@ export default function HomePage() {
       />
       {/* Hero with photo background */}
       <section className="relative overflow-hidden text-primary-foreground">
-        <img src={heroImg} alt="Профессиональная кухня ресторана" className="absolute inset-0 w-full h-full object-cover" />
+        <img
+          src={heroImg}
+          alt="Профессиональная кухня ресторана"
+          width={1920}
+          height={1080}
+          fetchPriority="high"
+          decoding="async"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
         <div className="absolute inset-0 bg-foreground/80" />
         <div className="container-tight relative z-10 py-20 md:py-32 px-4 md:px-8">
           <motion.div initial="hidden" animate="visible" className="max-w-3xl">
