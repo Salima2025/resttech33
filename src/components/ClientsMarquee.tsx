@@ -1,35 +1,35 @@
-import yoji from "@/assets/clients/yoji.jpg.asset.json";
-import dubai from "@/assets/clients/dubai.jpg.asset.json";
-import dostoevsky from "@/assets/clients/dostoevsky.jpg.asset.json";
-import rockets from "@/assets/clients/rockets.jpg.asset.json";
-import onion from "@/assets/clients/onion.jpg.asset.json";
-import dominos from "@/assets/clients/dominos.jpg.asset.json";
-import myata from "@/assets/clients/myata.jpg.asset.json";
-import rukiVverh from "@/assets/clients/ruki-vverh.jpg.asset.json";
-import soho from "@/assets/clients/soho.jpg.asset.json";
-import mossovet from "@/assets/clients/mossovet.jpg.asset.json";
-import kfc from "@/assets/clients/kfc.jpg.asset.json";
-import commode from "@/assets/clients/commode.jpg.asset.json";
-import lepimVarim from "@/assets/clients/lepim-varim.jpg.asset.json";
-import foodband from "@/assets/clients/foodband.jpg.asset.json";
-import rostics from "@/assets/clients/rostics.jpg.asset.json";
+import yoji from "@/assets/clients/yoji.jpg";
+import dubai from "@/assets/clients/dubai.jpg";
+import dostoevsky from "@/assets/clients/dostoevsky.jpg";
+import rockets from "@/assets/clients/rockets.jpg";
+import onion from "@/assets/clients/onion.jpg";
+import dominos from "@/assets/clients/dominos.jpg";
+import myata from "@/assets/clients/myata.jpg";
+import rukiVverh from "@/assets/clients/ruki-vverh.jpg";
+import soho from "@/assets/clients/soho.jpg";
+import mossovet from "@/assets/clients/mossovet.jpg";
+import kfc from "@/assets/clients/kfc.jpg";
+import commode from "@/assets/clients/commode.jpg";
+import lepimVarim from "@/assets/clients/lepim-varim.jpg";
+import foodband from "@/assets/clients/foodband.jpg";
+import rostics from "@/assets/clients/rostics.jpg";
 
 const logos = [
-  { src: yoji.url, alt: "YOJI" },
-  { src: dubai.url, alt: "Dubai Boutique Restaurant" },
-  { src: dostoevsky.url, alt: "Достоевский" },
-  { src: rockets.url, alt: "Rockets.Coffee" },
-  { src: onion.url, alt: "Onion" },
-  { src: dominos.url, alt: "Domino's Pizza" },
-  { src: myata.url, alt: "Мята Lounge" },
-  { src: rukiVverh.url, alt: "Руки Вверх Бар" },
-  { src: soho.url, alt: "Soho Rooms" },
-  { src: mossovet.url, alt: "Театр Моссовета" },
-  { src: kfc.url, alt: "KFC" },
-  { src: commode.url, alt: "Commode club & bar" },
-  { src: lepimVarim.url, alt: "Лепим и Варим" },
-  { src: foodband.url, alt: "Food Band" },
-  { src: rostics.url, alt: "Rostic's" },
+  { src: yoji, alt: "YOJI" },
+  { src: dubai, alt: "Dubai Boutique Restaurant" },
+  { src: dostoevsky, alt: "Достоевский" },
+  { src: rockets, alt: "Rockets.Coffee" },
+  { src: onion, alt: "Onion" },
+  { src: dominos, alt: "Domino's Pizza" },
+  { src: myata, alt: "Мята Lounge" },
+  { src: rukiVverh, alt: "Руки Вверх Бар" },
+  { src: soho, alt: "Soho Rooms" },
+  { src: mossovet, alt: "Театр Моссовета" },
+  { src: kfc, alt: "KFC" },
+  { src: commode, alt: "Commode club и bar" },
+  { src: lepimVarim, alt: "Лепим и Варим" },
+  { src: foodband, alt: "Food Band" },
+  { src: rostics, alt: "Rostic's" },
 ];
 
 export default function ClientsMarquee() {
@@ -48,7 +48,10 @@ export default function ClientsMarquee() {
             <img
               src={logo.src}
               alt={logo.alt}
+              width={400}
+              height={200}
               loading="lazy"
+              decoding="async"
               className="max-h-full max-w-full object-contain"
             />
           </div>
