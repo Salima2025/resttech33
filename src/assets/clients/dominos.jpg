@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <script type="module">import { injectIntoGlobalHook } from "/@react-refresh";
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+    <script type="module" src="/@vite/client"></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/__l5e/assets-v1/a9e1ce9d-103f-4569-bbf8-39dd1def553e/rt-logo.png" />
+    <title>Rest-Tech – Интегратор умной кухни для HoReCa</title>
+    <meta name="description" content="Экономим ресторанам от 15 до 40% операционных расходов. Оборудование, IoT-экосистемы и консалтинг для HoReCa.">
+    <meta name="author" content="Rest-Tech" />
+    
+    
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Rest-Tech – Интегратор умной кухни для HoReCa">
+  <meta name="twitter:title" content="Rest-Tech – Интегратор умной кухни для HoReCa">
+  <meta property="og:description" content="Экономим ресторанам от 15 до 40% операционных расходов. Оборудование, IoT-экосистемы и консалтинг для HoReCa.">
+  <meta name="twitter:description" content="Экономим ресторанам от 15 до 40% операционных расходов. Оборудование, IoT-экосистемы и консалтинг для HoReCa.">
+  <meta property="og:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4a3860a4-8964-4fa9-9b8c-c954f28c2350/id-preview-a632865d--064ac675-943a-40a0-97bb-5c5a0002ff4e.lovable.app-1775949430508.png">
+  <meta name="twitter:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4a3860a4-8964-4fa9-9b8c-c954f28c2350/id-preview-a632865d--064ac675-943a-40a0-97bb-5c5a0002ff4e.lovable.app-1775949430508.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:url" content="https://resttech33.lovable.app/" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Rest-Tech",
+      "url": "https://resttech33.lovable.app/",
+      "description": "B2B-интегратор умной кухни для HoReCa: оборудование, IoT и консалтинг.",
+      "areaServed": "RU"
+    }
+  </script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
