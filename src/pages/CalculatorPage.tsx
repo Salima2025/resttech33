@@ -7,6 +7,7 @@ import CalculatorStepParams from "@/components/calculator/StepParams";
 import CalculatorStepProblems from "@/components/calculator/StepProblems";
 import CalculatorStepContacts from "@/components/calculator/StepContacts";
 import CalculatorResult from "@/components/calculator/Result";
+import LiveEstimate from "@/components/calculator/LiveEstimate";
 import Seo from "@/components/Seo";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
@@ -135,8 +136,8 @@ export default function CalculatorPage() {
               transition={{ duration: 0.3 }}
             >
               {step === 0 && <CalculatorStepFormat form={form} setForm={setForm} />}
-              {step === 1 && <CalculatorStepParams form={form} setForm={setForm} />}
-              {step === 2 && <CalculatorStepProblems form={form} toggleProblem={toggleProblem} />}
+              {step === 1 && <><CalculatorStepParams form={form} setForm={setForm} /><LiveEstimate form={form} /></>}
+              {step === 2 && <><CalculatorStepProblems form={form} toggleProblem={toggleProblem} /><LiveEstimate form={form} /></>}
               {step === 3 && <CalculatorStepContacts form={form} setForm={setForm} />}
               {step === 4 && submitted && <CalculatorResult form={form} />}
             </motion.div>
