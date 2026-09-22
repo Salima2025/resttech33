@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Wrench, ShieldCheck, Truck, ArrowRight, Flame, Snowflake, Zap, Coffee, WashingMachine, Recycle } from "lucide-react";
 import Seo from "@/components/Seo";
+import { ORG, service, faq } from "@/lib/schema";
 
 const categories = [
   { name: "Тепловое оборудование", icon: Flame },
@@ -26,6 +27,41 @@ export default function EquipmentPage() {
         title="Оборудование для HoReCa – Rest-Tech"
         description="Тепловое, холодильное, посудомоечное и барное оборудование для ресторанов и кафе. Гарантия до 3 лет, монтаж, доставка по РФ/СНГ."
         path="/solutions/equipment"
+        jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "OfferCatalog",
+            name: "Каталог оборудования для HoReCa Rest-Tech",
+            url: "https://resttech33.lovable.app/solutions/equipment",
+            provider: ORG,
+            itemListElement: categories.map((c, i) => ({
+              "@type": "Offer",
+              position: i + 1,
+              priceCurrency: "RUB",
+              availability: "https://schema.org/InStock",
+              warranty: { "@type": "WarrantyPromise", durationOfWarranty: { "@type": "QuantitativeValue", value: 3, unitCode: "ANN" } },
+              itemOffered: {
+                "@type": "Product",
+                name: c.name,
+                category: "Профессиональное оборудование для HoReCa",
+                brand: { "@type": "Brand", name: "Rest-Tech" },
+              },
+            })),
+          },
+          service({
+            name: "Поставка, монтаж и сервис оборудования для HoReCa",
+            description:
+              "Подбор нового и б/у оборудования с проверкой, гарантией до 3 лет, монтажом, пусконаладкой и доставкой по РФ и СНГ.",
+            path: "/solutions/equipment",
+            serviceType: "Поставка и монтаж кухонного оборудования",
+            offers: benefits.map((b) => ({ name: b.title, description: b.desc })),
+          }),
+          faq([
+            { q: "Какая гарантия на оборудование?", a: "До 3 лет – как на новое, так и на проверенное б/у оборудование." },
+            { q: "Выполняете ли вы монтаж?", a: "Да, наши инженеры выполняют установку, подключение и пусконаладку." },
+            { q: "Куда осуществляется доставка?", a: "По России и СНГ собственной логистикой." },
+          ]),
+        ]}
       />
       <section className="gradient-hero text-primary-foreground py-14 md:py-20">
         <div className="container-tight px-4 md:px-8">

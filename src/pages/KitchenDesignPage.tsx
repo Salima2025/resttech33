@@ -6,6 +6,7 @@ import blueprintImg from "@/assets/kitchen-blueprint.jpg";
 import engineerImg from "@/assets/kitchen-design-engineer.jpg";
 import layout3dImg from "@/assets/kitchen-3d-layout.jpg";
 import Seo from "@/components/Seo";
+import { service, howTo, faq } from "@/lib/schema";
 
 const steps = [
   { step: "01", title: "Замер и анализ", desc: "Выезд на объект или анализ планировки, определение требований к кухне." },
@@ -30,6 +31,26 @@ export default function KitchenDesignPage() {
         title="Проектирование кухни ресторана – Rest-Tech"
         description="Проект расстановки, расчёт мощностей, монтаж и пусконаладка кухни под формат заведения. Экономия до 20% бюджета и соответствие нормам."
         path="/solutions/design"
+        jsonLd={[
+          service({
+            name: "Технологическое проектирование кухни ресторана",
+            description:
+              "Проект расстановки оборудования, расчёт электрических мощностей, вентиляции и водоснабжения с учётом санитарных норм и требований пожарной безопасности.",
+            path: "/solutions/design",
+            serviceType: "Проектирование профессиональной кухни",
+            offers: steps.map((s) => ({ name: s.title, description: s.desc })),
+          }),
+          howTo({
+            name: "Как проектируется кухня ресторана в Rest-Tech",
+            description: "Пять этапов от замера помещения до пусконаладки и обучения персонала.",
+            steps,
+          }),
+          faq([
+            { q: "Сколько стоит проект кухни?", a: "Стоимость зависит от площади и формата заведения; правильная расстановка экономит до 20 % бюджета на оснащение." },
+            { q: "Учитываются ли санитарные и пожарные нормы?", a: "Да, проект выполняется в соответствии с санитарными нормами и требованиями пожарной безопасности." },
+            { q: "Вы рассчитываете мощности?", a: "Да: электрика, вентиляция и водоснабжение рассчитываются точно под подобранное оборудование." },
+          ]),
+        ]}
       />
       <section className="relative overflow-hidden text-primary-foreground py-14 md:py-20">
         <img src={engineerImg} alt="Инженер проектирует кухню ресторана" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
