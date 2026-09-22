@@ -7,6 +7,8 @@ import CalculatorStepParams from "@/components/calculator/StepParams";
 import CalculatorStepProblems from "@/components/calculator/StepProblems";
 import CalculatorStepContacts from "@/components/calculator/StepContacts";
 import CalculatorResult from "@/components/calculator/Result";
+import LiveEstimate from "@/components/calculator/LiveEstimate";
+import { ORG, faq } from "@/lib/schema";
 import Seo from "@/components/Seo";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
@@ -97,6 +99,25 @@ export default function CalculatorPage() {
         title="Калькулятор инвестиций в умную кухню – Rest-Tech"
         description="Рассчитайте окупаемость оборудования и IoT для ресторана за 2 минуты. Прогноз экономии 15–40% операционных расходов."
         path="/calculator"
+        jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            name: "Калькулятор окупаемости умной кухни Rest-Tech",
+            url: "https://resttech33.lovable.app/calculator",
+            applicationCategory: "BusinessApplication",
+            operatingSystem: "Web",
+            description:
+              "Интерактивный B2B-инструмент финансового моделирования для предприятий общепита: расчёт экономии по Food Cost, энергии и трудозатратам, срок окупаемости оборудования и IoT.",
+            offers: { "@type": "Offer", price: "0", priceCurrency: "RUB" },
+            provider: ORG,
+          },
+          faq([
+            { q: "Сколько занимает расчёт окупаемости?", a: "Около 2 минут: формат заведения, параметры трафика, текущие проблемы кухни." },
+            { q: "Что я получу по итогам расчёта?", a: "Технологическую карту сокращения издержек и расчёт окупаемости оборудования в трёх сценариях в течение 1 рабочего дня." },
+            { q: "Насколько снижаются операционные расходы?", a: "От 15 до 40 % в зависимости от формата, количества точек и выявленных точек потерь." },
+          ]),
+        ]}
       />
       <section className="gradient-hero text-primary-foreground py-14 md:py-20">
         <div className="container-tight px-4 md:px-8">
@@ -135,8 +156,8 @@ export default function CalculatorPage() {
               transition={{ duration: 0.3 }}
             >
               {step === 0 && <CalculatorStepFormat form={form} setForm={setForm} />}
-              {step === 1 && <CalculatorStepParams form={form} setForm={setForm} />}
-              {step === 2 && <CalculatorStepProblems form={form} toggleProblem={toggleProblem} />}
+              {step === 1 && <><CalculatorStepParams form={form} setForm={setForm} /><LiveEstimate form={form} /></>}
+              {step === 2 && <><CalculatorStepProblems form={form} toggleProblem={toggleProblem} /><LiveEstimate form={form} /></>}
               {step === 3 && <CalculatorStepContacts form={form} setForm={setForm} />}
               {step === 4 && submitted && <CalculatorResult form={form} />}
             </motion.div>
