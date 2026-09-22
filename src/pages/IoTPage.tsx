@@ -7,6 +7,7 @@ import {
   Building2, Store, Truck, Wine, XCircle,
 } from "lucide-react";
 import Seo from "@/components/Seo";
+import { ORG, service, faq, itemList } from "@/lib/schema";
 
 const stages = [
   { step: "01", title: "Аудит", desc: "Обследуем кухню, определяем точки потерь и приоритеты автоматизации." },
@@ -98,6 +99,38 @@ export default function IoTPage() {
         title="Ресторанные технологии и IoT-мониторинг – Rest-Tech"
         description="Операционная система кухни: IoT-датчики, мониторинг оборудования, тревоги, интеграция с iiko, r_keeper, Poster. Окупаемость 6–18 мес."
         path="/solutions/iot"
+        jsonLd={[
+          service({
+            name: "Внедрение IoT-экосистемы для кухни под ключ",
+            description:
+              "Аудит, проектирование, монтаж датчиков, обучение и сопровождение: мониторинг оборудования, тревоги, аналитика, интеграция с POS и системами учёта.",
+            path: "/solutions/iot",
+            serviceType: "Внедрение IoT-мониторинга кухни в HoReCa",
+            offers: features.map((f) => ({ name: f.title, description: f.desc })),
+          }),
+          {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            name: "Платформа Rest-Tech для мониторинга кухни",
+            applicationCategory: "BusinessApplication",
+            operatingSystem: "Web, iOS, Android",
+            description:
+              "Платформа мониторинга кухонного оборудования в реальном времени: температура, нагрузка, время работы, тревоги, дашборды KPI и интеграции с iiko, r_keeper, Poster.",
+            featureList: features.map((f) => f.title),
+            provider: ORG,
+            offers: { "@type": "Offer", priceCurrency: "RUB", price: "150000" },
+          },
+          faq([
+            { q: "За сколько окупается IoT-система на кухне?", a: "Для кафе – 6–12 месяцев, для ресторана – 12–18 месяцев, в сетях – быстрее за счёт масштаба." },
+            { q: "Сколько занимает внедрение?", a: "Пять этапов: аудит, проектирование, монтаж, обучение персонала и сопровождение. Типовой срок – от 2 до 6 недель." },
+            { q: "Подходит ли система к уже установленному оборудованию?", a: "Да, датчики устанавливаются на действующее тепловое и холодильное оборудование без его замены." },
+            { q: "Как это сочетается с iiko и r_keeper?", a: "Системы учёта считают прошлое, Rest-Tech управляет настоящим. Мы интегрируемся с iiko, r_keeper и Poster." },
+          ]),
+          itemList(
+            "IoT-пакеты Rest-Tech по форматам заведений",
+            cases.map((c) => ({ name: c.title, description: `${c.desc} Результат: ${c.result}. Бюджет: ${c.budget}.` }))
+          ),
+        ]}
       />
       <section className="gradient-hero text-primary-foreground py-14 md:py-20">
         <div className="container-tight px-4 md:px-8">
