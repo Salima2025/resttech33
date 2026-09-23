@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { GraduationCap, ClipboardCheck, BookOpen, ArrowRight, CheckCircle, Users, UserCheck, Briefcase, Search } from "lucide-react";
 import Seo from "@/components/Seo";
+import { ORG, service, faq } from "@/lib/schema";
 
 const staffing = [
   {
@@ -57,6 +58,38 @@ export default function ConsultingPage() {
         title="Консалтинг и обучение для HoReCa – Rest-Tech"
         description="Аудит кухни, подбор персонала, обучение и внедрение стандартов эффективности. Шефы, управляющие, линейный персонал – под запуск и операционку."
         path="/solutions/consulting"
+        jsonLd={[
+          service({
+            name: "Консалтинг, подбор персонала и обучение для HoReCa",
+            description:
+              "Аудит кухни, подбор шефов, управляющих и линейного персонала, обучение работе с IoT-данными и внедрение стандартов эффективности.",
+            path: "/solutions/consulting",
+            serviceType: "Консалтинг и обучение персонала HoReCa",
+            offers: [
+              ...services.map((s) => ({ name: s.title, description: s.desc })),
+              ...staffing.map((s) => ({ name: `Подбор: ${s.title}`, description: s.desc })),
+            ],
+          }),
+          {
+            "@context": "https://schema.org",
+            "@type": "Course",
+            name: "Обучение персонала кухни работе с IoT-данными",
+            description:
+              "Онлайн-модули и выездные тренинги для управляющих и шефов: работа с дашбордами, стандарты процессов, чек-листы эффективности.",
+            provider: ORG,
+            hasCourseInstance: {
+              "@type": "CourseInstance",
+              courseMode: ["Online", "Onsite"],
+              courseWorkload: "PT16H",
+            },
+            offers: { "@type": "Offer", category: "B2B", priceCurrency: "RUB" },
+          },
+          faq([
+            { q: "Сколько стоит аудит кухни?", a: "Мини-аудит проводится бесплатно, полноценный аудит рассчитывается под площадь и формат заведения." },
+            { q: "Помогаете ли вы с подбором персонала?", a: "Да: шефы и су-шефы, управляющие, линейный персонал, а также внештатные технологи и бренд-шефы на проект." },
+            { q: "Чему обучаете персонал?", a: "Работе с IoT-дашбордами, стандартам процессов, чек-листам открытия и закрытия, KPI-картам кухни." },
+          ]),
+        ]}
       />
       <section className="gradient-hero text-primary-foreground py-14 md:py-20">
         <div className="container-tight px-4 md:px-8">
