@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight, Store, Utensils, Building2, ChefHat } from "lucide-react";
 import Seo from "@/components/Seo";
+import { itemList, faq } from "@/lib/schema";
 
 const solutions = [
   {
@@ -68,13 +69,24 @@ export default function CasesPage() {
         title="Готовые решения для HoReCa – кейсы Rest-Tech"
         description="Кейсы оснащения франшиз, корнеров, пекарен и ресторанов: комплекты оборудования, проекты расстановки, сроки запуска и результат."
         path="/cases"
-        jsonLd={{
-          "@context": "https://schema.org",
-          "@type": "CollectionPage",
-          name: "Готовые решения Rest-Tech",
-          description: "Кейсы оснащения заведений HoReCa: франшизы, корнеры, пекарни, рестораны.",
-          url: "https://resttech33.lovable.app/cases",
-        }}
+        jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            name: "Готовые решения Rest-Tech",
+            description: "Кейсы оснащения заведений HoReCa: франшизы, корнеры, пекарни, рестораны.",
+            url: "https://resttech33.lovable.app/cases",
+          },
+          itemList(
+            "Готовые пакетные решения Rest-Tech для франшиз и корнеров",
+            solutions.map((s) => ({ name: `${s.category}: ${s.title}`, description: `${s.desc} Состав: ${s.items.join(", ")}. Результат: ${s.result}.` }))
+          ),
+          faq([
+            { q: "Есть ли готовые комплекты для франшиз?", a: "Да, унифицированные комплекты оборудования с единым проектом расстановки и расчётом мощностей для всех точек сети." },
+            { q: "За какой срок запускается корнер?", a: "Компактные корнеры запускаются за 5–10 дней с монтажом и подключением." },
+            { q: "Что входит в готовое решение?", a: "Тепловое, холодильное и нейтральное оборудование, проект расстановки, расчёт мощностей, логистика и монтаж." },
+          ]),
+        ]}
       />
       <section className="gradient-hero text-primary-foreground py-14 md:py-20">
         <div className="container-tight px-4 md:px-8">
