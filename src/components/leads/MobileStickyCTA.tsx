@@ -1,4 +1,4 @@
-import { Calculator, Send } from "lucide-react";
+import { Calculator, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLeadDialog } from "./LeadDialogProvider";
 
@@ -9,8 +9,8 @@ export default function MobileStickyCTA() {
       <Button variant="accent" className="flex-1" onClick={() => open("kit")}>
         <Calculator className="w-4 h-4 mr-2" /> Получить расчёт
       </Button>
-      <a href="https://t.me/+gy7lPI6GPDRlNjli" target="_blank" rel="noopener noreferrer" aria-label="Написать в Telegram">
-        <Button variant="outline" size="icon"><Send className="w-4 h-4" /></Button>
+      <a href="tel:+79166034063" aria-label="Позвонить">
+        <Button variant="outline" size="icon"><Phone className="w-4 h-4" /></Button>
       </a>
     </div>
   );
