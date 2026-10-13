@@ -1,4 +1,5 @@
 import { corsHeaders } from 'npm:@supabase/supabase-js@2/cors';
+import { createClient } from 'npm:@supabase/supabase-js@2';
 
 const GATEWAY_URL = 'https://connector-gateway.lovable.dev/telegram';
 
@@ -31,6 +32,11 @@ Deno.serve(async (req) => {
       });
     }
 
+    // Honeypot: bots fill hidden "website" field
+    if (typeof body.website === 'string' && body.website.trim() !== '') {
+      return new Response(JSON.stringify({ ok: true }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
+    }
+
     const source = String(body.source ?? 'Сайт').slice(0, 100);
     const name = String(body.name ?? '').trim().slice(0, 200);
     const email = String(body.email ?? '').trim().slice(0, 200);
@@ -44,6 +50,12 @@ Deno.serve(async (req) => {
         status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       });
     }
+
+    try {
+      const sb = createClient(Deno.env.get('SUPABASE_URL')!, Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!);
+      const { error: dbErr } = await sb.from('lead_submissions').insert({ source, name, email: email || null, phone: phone || null, message: message || null, fields });
+      if (dbErr) console.error('lead insert failed:', dbErr.message);
+    } catch (e) { console.error('lead insert exception:', e); }
 
     const lines = [
       `🔔 <b>Новая заявка Rest-Tech</b>`,
