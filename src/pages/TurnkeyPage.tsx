@@ -47,7 +47,7 @@ export default function TurnkeyPage() {
         description="Оснащение кафе, ресторанов, доставки и столовых под ключ: проект, поставка оборудования, монтаж, обучение, сервис и IoT. Один подрядчик, единая гарантия."
         path="/osnashchenie-pod-klyuch"
         jsonLd={[
-          service({ name: "Оснащение кухни под ключ", description: "Проектирование, поставка, монтаж, обучение и сервис оборудования для HoReCa", path: "/osnashchenie-pod-klyuch" }),
+          service({ name: "Оснащение кухни под ключ", description: "Проектирование, поставка, монтаж, обучение и сервис оборудования для HoReCa", path: "/osnashchenie-pod-klyuch", serviceType: "Комплексное оснащение предприятий общественного питания" }),
           faq(faqs),
         ]}
       />

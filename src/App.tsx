@@ -15,6 +15,9 @@ import IoTPage from "./pages/IoTPage";
 import ConsultingPage from "./pages/ConsultingPage";
 import AboutPage from "./pages/AboutPage";
 import ContactsPage from "./pages/ContactsPage";
+import TurnkeyPage from "./pages/TurnkeyPage";
+import LeadDialogProvider from "@/components/leads/LeadDialogProvider";
+import MobileStickyCTA from "@/components/leads/MobileStickyCTA";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicyPage from "./pages/legal/PrivacyPolicyPage";
 import PersonalDataConsentPage from "./pages/legal/PersonalDataConsentPage";
@@ -30,10 +33,12 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <LeadDialogProvider>
         <Header />
-        <main className="min-h-screen">
+        <main className="min-h-screen pb-16 md:pb-0">
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/osnashchenie-pod-klyuch" element={<TurnkeyPage />} />
             <Route path="/calculator" element={<CalculatorPage />} />
             <Route path="/cases" element={<CasesPage />} />
             <Route path="/solutions/equipment" element={<EquipmentPage />} />
@@ -52,6 +57,8 @@ const App = () => (
         </main>
         <Footer />
         <CookieBanner />
+        <MobileStickyCTA />
+        </LeadDialogProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

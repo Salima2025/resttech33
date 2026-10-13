@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 const solutions = [
+  { label: "Оснащение под ключ", href: "/osnashchenie-pod-klyuch", desc: "Проект, поставка, монтаж, сервис" },
   { label: "Оборудование", href: "/solutions/equipment", desc: "Новое и б/у для HoReCa" },
   { label: "Спроектировать кухню", href: "/solutions/design", desc: "Расстановка, расчёт мощностей" },
   { label: "Ресторанные технологии", href: "/solutions/iot", desc: "IoT, мониторинг, автоматизация" },
