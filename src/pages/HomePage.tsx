@@ -12,6 +12,19 @@ import eqDish from "@/assets/equipment-dishwasher.jpg";
 import eqGriddle from "@/assets/equipment-griddle.jpg";
 import eqCoffee from "@/assets/equipment-coffee.jpg";
 import ClientsMarquee from "@/components/ClientsMarquee";
+import WorkProcess from "@/components/home/WorkProcess";
+import LeadForm from "@/components/leads/LeadForm";
+import { useLeadDialog } from "@/components/leads/LeadDialogProvider";
+import { Truck, PenTool, Settings, Users, Activity, CheckCircle2 } from "lucide-react";
+
+const turnkey = [
+  { icon: PenTool, t: "Проект", d: "Расстановка, кВт, вода, вентиляция" },
+  { icon: Truck, t: "Поставка", d: "Прямые контракты с производителями" },
+  { icon: Settings, t: "Монтаж", d: "Подключение и пусконаладка" },
+  { icon: Users, t: "Обучение", d: "Персонал и регламенты" },
+  { icon: Wrench, t: "Сервис", d: "Гарантия и регламентное ТО" },
+  { icon: Activity, t: "IoT", d: "Мониторинг температур и энергии" },
+];
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -71,6 +84,7 @@ const carouselItems = [
 ];
 
 export default function HomePage() {
+  const open = useLeadDialog();
   return (
     <>
       <Seo
@@ -109,19 +123,23 @@ export default function HomePage() {
                 <span className="sr-only"> – Интегратор умной кухни для HoReCa</span>
               </h1>
             </motion.div>
-            <motion.p custom={1} variants={fadeUp} className="text-2xl md:text-3xl font-display font-semibold text-primary-foreground mb-8">
-              Интегратор умной кухни для HoReCa
+            <motion.p custom={1} variants={fadeUp} className="text-2xl md:text-4xl font-display font-semibold text-primary-foreground mb-4 leading-tight">
+              Оснащаем кафе, рестораны и сети профессиональным оборудованием и IoT-технологиями
             </motion.p>
-            <motion.div custom={3} variants={fadeUp} className="flex flex-wrap gap-4">
-              <Link to="/solutions/equipment">
-                <Button variant="hero" size="lg">
-                  Посмотреть оборудование <ArrowRight className="w-4 h-4 ml-1" />
-                </Button>
-              </Link>
-              <Link to="/calculator">
-                <Button variant="heroOutline" size="lg">Калькулятор инвестиций</Button>
-              </Link>
+            <motion.p custom={2} variants={fadeUp} className="text-lg text-primary-foreground/90 mb-8 max-w-2xl">
+              Проектируем кухню, поставляем оборудование, монтируем, обучаем персонал и снижаем операционные расходы на 15–40%.
+            </motion.p>
+            <motion.div custom={3} variants={fadeUp} className="flex flex-wrap gap-4 mb-8">
+              <Button variant="hero" size="lg" onClick={() => open("kit")}>
+                Рассчитать комплектацию кухни <ArrowRight className="w-4 h-4 ml-1" />
+              </Button>
+              <Button variant="heroOutline" size="lg" onClick={() => open("project24")}>Получить проект за 24 часа</Button>
             </motion.div>
+            <motion.ul custom={4} variants={fadeUp} className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-primary-foreground/90">
+              {["350+ проектов", "15–40% экономия", "6–18 мес. окупаемость IoT", "Гарантия и сервис"].map((m) => (
+                <li key={m} className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-accent" />{m}</li>
+              ))}
+            </motion.ul>
           </motion.div>
         </div>
       </section>
@@ -246,6 +264,32 @@ export default function HomePage() {
       </section>
 
       {/* Our Projects – Clients logo wall */}
+      {/* Turnkey */}
+      <section className="section-padding bg-background">
+        <div className="container-tight grid lg:grid-cols-2 gap-10 items-center">
+          <div>
+            <p className="text-accent font-semibold text-sm uppercase tracking-wider mb-3">Один подрядчик – одна гарантия</p>
+            <h2 className="font-display font-bold text-3xl md:text-4xl text-foreground mb-4">Оснащение кухни под ключ</h2>
+            <p className="text-muted-foreground mb-6">Вместо 5–7 поставщиков – один договор, фиксированная смета и график. Отвечаем за результат от пустого помещения до работающей кухни.</p>
+            <div className="flex flex-wrap gap-3">
+              <Link to="/osnashchenie-pod-klyuch"><Button variant="accent" size="lg">Подробнее об услуге <ArrowRight className="w-4 h-4 ml-1" /></Button></Link>
+              <Button variant="outline" size="lg" onClick={() => open("audit")}>Заказать аудит кухни</Button>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            {turnkey.map((x) => (
+              <div key={x.t} className="bg-card rounded-2xl p-4 border border-border shadow-card">
+                <x.icon className="w-6 h-6 text-accent mb-3" />
+                <p className="font-display font-semibold text-foreground">{x.t}</p>
+                <p className="text-xs text-muted-foreground">{x.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <WorkProcess />
+
       <section id="projects" className="section-padding bg-background scroll-mt-20">
         <div className="container-tight">
           <div className="text-center mb-10">
@@ -265,20 +309,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="section-padding gradient-hero text-primary-foreground">
-        <div className="container-tight text-center">
-          <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">Готовы оптимизировать вашу кухню?</h2>
-          <p className="text-primary-foreground/90 text-lg mb-8 max-w-xl mx-auto">
-            Рассчитайте инвестиции за 2 минуты или получите готовый проект для вашего заведения.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/calculator">
-              <Button variant="hero" size="lg">Калькулятор инвестиций <ArrowRight className="w-4 h-4 ml-1" /></Button>
-            </Link>
-            <Link to="/contacts">
-              <Button variant="heroOutline" size="lg">Получить готовый проект</Button>
-            </Link>
+      {/* Final CTA form */}
+      <section id="lead" className="section-padding gradient-hero text-primary-foreground scroll-mt-20">
+        <div className="container-tight grid lg:grid-cols-2 gap-10 items-start">
+          <div>
+            <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">Рассчитать инвестиции в кухню</h2>
+            <p className="text-primary-foreground/90 text-lg mb-6">Пришлите параметры – подготовим спецификацию, смету и график поставки за 1 рабочий день.</p>
+            <div className="flex flex-wrap gap-3">
+              <Link to="/calculator"><Button variant="heroOutline" size="lg">Калькулятор ROI</Button></Link>
+              <Button variant="heroOutline" size="lg" onClick={() => open("iot")}>Расчёт IoT-системы</Button>
+            </div>
+          </div>
+          <div className="bg-card text-foreground rounded-2xl p-6 md:p-8 shadow-elevated">
+            <LeadForm kind="kit" />
           </div>
         </div>
       </section>
