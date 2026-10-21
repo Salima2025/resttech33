@@ -56,6 +56,7 @@ export default function Footer() {
 
         <div className="border-t border-primary-foreground/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="text-xs text-primary-foreground/90 space-y-1">
+            <p><a href="/sitemap.xml" className="hover:text-accent transition-colors">Карта сайта</a></p>
             <p>© 2026 Rest-Tech. Все права защищены.</p>
             <p>ИП Ломакин Павел Константинович · ИНН 502728918918</p>
             <p>
