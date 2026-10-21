@@ -1,0 +1,3 @@
+# Project rules
+- Keep the XML sitemap aligned with explicit public routes in App.tsx; omit lastmod unless a page-specific significant-change timestamp is authoritative, so crawlers receive accurate discovery metadata.
+- Keep leadership content on the About page with linked Person and Article structured data; biography must remain grounded in supplied portfolio material, not unverified performance claims.
