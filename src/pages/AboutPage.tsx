@@ -3,7 +3,7 @@ import { Target, Users, Award, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Seo from "@/components/Seo";
-import portrait from "@/assets/pavel-lomakin.png.asset.json";
+import portrait from "@/assets/pavel-lomakin.webp";
 import { ORG, SITE } from "@/lib/schema";
 
 const leader = {
@@ -75,7 +75,7 @@ export default function AboutPage() {
           </div>
 
           <div id="pavel-lomakin" className="scroll-mt-24 border-t border-border pt-12 mb-14 grid md:grid-cols-[260px_1fr] gap-8 md:gap-12 items-start">
-            <img src={portrait.url} alt="Павел Константинович Ломакин, руководитель Rest-Tech" width={768} height={1154} loading="lazy" className="w-full max-w-[260px] aspect-[2/3] object-cover rounded-lg" />
+            <img src={portrait} alt="Павел Константинович Ломакин, руководитель Rest-Tech" width={600} height={902} loading="lazy" className="w-full max-w-[260px] aspect-[2/3] object-cover rounded-lg" />
             <div>
               <p className="text-accent font-semibold text-sm mb-3">Руководитель Rest-Tech</p>
               <h2 className="font-display font-bold text-2xl md:text-3xl text-foreground mb-5">Павел Константинович Ломакин</h2>
