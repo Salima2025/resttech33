@@ -7,7 +7,7 @@ describe("public sitemap discovery", () => {
   const locations = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
 
   it("includes every explicit public route exactly once", () => {
-    const routes = [...app.matchAll(/<Route path="([^"]+)"/g)].map((match) => match[1]).filter((path) => path !== "*");
+    const routes = [...app.matchAll(/<Route path="([^"]+)"/g)].map((match) => match[1]).filter((path) => path !== "*" && !path.startsWith("/manager"));
     expect(locations.sort()).toEqual(routes.map((path) => `https://resttech33.lovable.app${path}`).sort());
     expect(new Set(locations).size).toBe(locations.length);
   });

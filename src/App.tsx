@@ -24,6 +24,7 @@ import PersonalDataConsentPage from "./pages/legal/PersonalDataConsentPage";
 import PublicOfferPage from "./pages/legal/PublicOfferPage";
 import TermsOfUsePage from "./pages/legal/TermsOfUsePage";
 import MarketingConsentPage from "./pages/legal/MarketingConsentPage";
+import ManagerReplyPage from "./pages/ManagerReplyPage";
 
 const queryClient = new QueryClient();
 
@@ -52,6 +53,7 @@ const App = () => (
             <Route path="/legal/offer" element={<PublicOfferPage />} />
             <Route path="/legal/terms" element={<TermsOfUsePage />} />
             <Route path="/legal/marketing-consent" element={<MarketingConsentPage />} />
+            <Route path="/manager/reply" element={<ManagerReplyPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
