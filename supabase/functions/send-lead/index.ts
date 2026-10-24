@@ -71,6 +71,20 @@ Deno.serve(async (req) => {
       `<i>${new Date().toLocaleString('ru-RU', { timeZone: 'Europe/Moscow' })} МСК</i>`,
     ].filter(Boolean);
 
+    // Quick-action buttons
+    const contactRaw = [phone, String(fields['Telegram'] ?? fields['telegram'] ?? '')].join(' ');
+    const digits = phone.replace(/\D/g, '');
+    const waDigits = digits.length === 11 && digits.startsWith('8') ? '7' + digits.slice(1)
+      : digits.length === 10 ? '7' + digits : digits;
+    const tgMatch = contactRaw.match(/(?:t\.me\/|@)([A-Za-z0-9_]{5,32})/);
+    const buttons: { text: string; url: string }[] = [];
+    if (waDigits.length >= 10 && waDigits.length <= 15) {
+      buttons.push({ text: '💬 WhatsApp', url: `https://wa.me/${waDigits}` });
+    }
+    if (tgMatch) buttons.push({ text: '✈️ Telegram', url: `https://t.me/${tgMatch[1]}` });
+    if (email) buttons.push({ text: '✉️ Email', url: `mailto:${email}` });
+    if (waDigits.length >= 10) lines.splice(lines.length - 1, 0, `📞 Позвонить: +${waDigits}`);
+
     const tgRes = await fetch(`${GATEWAY_URL}/sendMessage`, {
       method: 'POST',
       headers: {
@@ -78,7 +92,10 @@ Deno.serve(async (req) => {
         'X-Connection-Api-Key': TELEGRAM_API_KEY,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: lines.join('\n'), parse_mode: 'HTML' }),
+      body: JSON.stringify({
+        chat_id: TELEGRAM_CHAT_ID, text: lines.join('\n'), parse_mode: 'HTML',
+        ...(buttons.length ? { reply_markup: { inline_keyboard: [buttons] } } : {}),
+      }),
     });
 
     const text = await tgRes.text();
