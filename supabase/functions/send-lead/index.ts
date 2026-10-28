@@ -1,5 +1,43 @@
 import { corsHeaders } from 'npm:@supabase/supabase-js@2/cors';
 import { createClient } from 'npm:@supabase/supabase-js@2';
+import { createOpenAI } from 'npm:@ai-sdk/openai@2';
+import { streamText } from 'npm:ai@5';
+
+const AI_GATEWAY = 'https://ai.gateway.lovable.dev/v1';
+const AI_MODEL = 'openai/gpt-6-astra';
+const AI_INSTRUCTIONS = `Ты – менеджер Rest-Tech, B2B-интегратора умной кухни для HoReCa (оборудование, проектирование кухни, оснащение под ключ, IoT-контроль, консалтинг и обучение). Пиши первый ответ клиенту на его заявку для мессенджера.
+Правила:
+- Деловой, вежливый тон, обращение на «вы» и по имени, без маркетинговых штампов и восклицаний.
+- Учитывай тип заведения, стадию проекта и суть запроса; предложи конкретный следующий шаг (короткий созвон, выезд инженера, запрос планировки или меню).
+- Задай 2–3 уточняющих вопроса, нужных для расчёта, – только тех данных, которых нет в заявке.
+- Не обещай цены, сроки, скидки и проценты экономии. Не придумывай факты о компании.
+- Длина: 50–100 слов, без markdown.
+- Подпись: «Rest-Tech, +7 (916) 603-40-63».
+Выведи только текст сообщения.`;
+
+async function draftReply(apiKey: string, leadText: string): Promise<string> {
+  let runId: string | undefined;
+  const provider = createOpenAI({
+    baseURL: AI_GATEWAY, apiKey,
+    headers: { 'Lovable-API-Key': apiKey, 'X-Lovable-AIG-SDK': 'vercel-ai-sdk' },
+    fetch: async (input, init) => {
+      const headers = new Headers(init?.headers);
+      if (runId) headers.set('X-Lovable-AIG-Run-ID', runId);
+      const res = await fetch(input, { ...init, headers });
+      runId ??= res.headers.get('X-Lovable-AIG-Run-ID')?.trim() || undefined;
+      if (!res.ok) console.error(`AI gateway [${res.status}]: ${await res.clone().text()}`);
+      return res;
+    },
+  });
+  const result = streamText({
+    model: provider.responses(AI_MODEL),
+    system: AI_INSTRUCTIONS,
+    messages: [{ role: 'user', content: leadText }],
+    onError: ({ error }) => console.error('AI stream error:', error),
+    providerOptions: { openai: { store: false, forceReasoning: true, reasoningEffort: 'low', reasoningSummary: 'auto', include: ['reasoning.encrypted_content'] } },
+  });
+  return (await result.text).trim();
+}
 
 const GATEWAY_URL = 'https://connector-gateway.lovable.dev/telegram';
 
@@ -112,6 +150,37 @@ Deno.serve(async (req) => {
         status: 502, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       });
     }
+
+    // Background: AI draft of the first reply, posted as a reply to the lead message
+    const replyTo = parsed?.result?.message_id;
+    const plainLead = [`Источник: ${source}`, `Имя: ${name}`,
+      ...Object.entries(fields).filter(([, v]) => v !== '' && v != null).map(([k, v]) => `${k}: ${Array.isArray(v) ? v.join(', ') : v}`),
+      message ? `Сообщение: ${message}` : ''].filter(Boolean).join('\n');
+    const job = (async () => {
+      try {
+        const draft = await draftReply(LOVABLE_API_KEY, plainLead);
+        if (!draft) return;
+        const kb: { text: string; url: string }[] = [];
+        if (waDigits.length >= 10 && waDigits.length <= 15) {
+          kb.push({ text: '💬 Отправить в WhatsApp', url: `https://wa.me/${waDigits}?text=${encodeURIComponent(draft).slice(0, 1900)}` });
+        }
+        if (tgMatch) kb.push({ text: '✈️ Открыть Telegram', url: `https://t.me/${tgMatch[1]}` });
+        if (email) kb.push({ text: '✉️ Отправить email', url: `mailto:${email}?subject=${encodeURIComponent('Rest-Tech: ответ на заявку')}&body=${encodeURIComponent(draft).slice(0, 1500)}` });
+        const r = await fetch(`${GATEWAY_URL}/sendMessage`, {
+          method: 'POST',
+          headers: { Authorization: `Bearer ${LOVABLE_API_KEY}`, 'X-Connection-Api-Key': TELEGRAM_API_KEY, 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: TELEGRAM_CHAT_ID, parse_mode: 'HTML',
+            text: `🤖 <b>Черновик ответа клиенту</b> (нажмите на текст, чтобы скопировать):\n\n<code>${esc(draft)}</code>`,
+            ...(replyTo ? { reply_parameters: { message_id: replyTo } } : {}),
+            ...(kb.length ? { reply_markup: { inline_keyboard: kb.map((b) => [b]) } } : {}),
+          }),
+        });
+        if (!r.ok) console.error(`Draft send failed [${r.status}]: ${await r.text()}`);
+      } catch (e) { console.error('draft job error:', e); }
+    })();
+    // @ts-ignore EdgeRuntime is provided by Supabase
+    if (typeof EdgeRuntime !== 'undefined') EdgeRuntime.waitUntil(job); else await job;
 
     return new Response(JSON.stringify({ ok: true }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
