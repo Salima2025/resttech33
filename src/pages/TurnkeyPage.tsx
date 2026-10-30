@@ -6,6 +6,7 @@ import { service, faq } from "@/lib/schema";
 import LeadForm from "@/components/leads/LeadForm";
 import { useLeadDialog } from "@/components/leads/LeadDialogProvider";
 import WorkProcess from "@/components/home/WorkProcess";
+import FormatLinks from "@/components/FormatLinks";
 
 const includes = [
   { t: "Аудит и технологическое задание", d: "Обмеры, анализ меню и потоков, расчёт производительности кухни." },
@@ -83,6 +84,13 @@ export default function TurnkeyPage() {
       </section>
 
       <WorkProcess />
+
+      <section className="section-padding bg-muted">
+        <div className="container-tight">
+          <h2 className="font-display font-bold text-3xl text-foreground mb-6">Оснащение под ваш формат</h2>
+          <FormatLinks />
+        </div>
+      </section>
 
       <section className="section-padding bg-background">
         <div className="container-tight">

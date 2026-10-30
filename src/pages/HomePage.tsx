@@ -69,8 +69,10 @@ const stats = [
 ];
 
 const audiences = [
-  { label: "Кафе 40–120 мест", href: "/solutions/equipment" },
-  { label: "Ресторан 120–250 мест", href: "/solutions/equipment" },
+  { label: "Кафе", href: "/kafe" },
+  { label: "Ресторан", href: "/restoran" },
+  { label: "Пекарня", href: "/pekar" },
+  { label: "Доставка / Dark kitchen", href: "/delivery" },
   { label: "Сеть 5–10+ точек", href: "/solutions/iot" },
   { label: "Кухня‑сервис / столовая", href: "/solutions/equipment" },
 ];
@@ -172,7 +174,7 @@ export default function HomePage() {
           <div className="text-center mb-10">
             <h2 className="font-display font-bold text-3xl md:text-4xl text-foreground mb-4">Для каких заведений подбираем оборудование</h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-16">
             {audiences.map((a, i) => (
               <Link key={a.label} to={a.href}>
                 <motion.div
