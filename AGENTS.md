@@ -3,3 +3,4 @@
 - Keep leadership content on the About page with linked Person and Article structured data; biography must remain grounded in supplied portfolio material, not unverified performance claims.
 - Internal staff tools live under /manager/*, are noindex and excluded from the sitemap, and are gated server-side by the MANAGER_ACCESS_CODE secret, since the site has no staff accounts.
 - AI calls (e.g. draft-reply) run only in edge functions via Lovable AI Gateway; the browser never holds the AI key.
+- Format landing pages share a typed content module and one page template; keep their public routes explicit and pass the venue into the existing lead form to preserve enquiry context without duplicating submission logic.

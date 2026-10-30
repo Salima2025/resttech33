@@ -25,6 +25,7 @@ import PublicOfferPage from "./pages/legal/PublicOfferPage";
 import TermsOfUsePage from "./pages/legal/TermsOfUsePage";
 import MarketingConsentPage from "./pages/legal/MarketingConsentPage";
 import ManagerReplyPage from "./pages/ManagerReplyPage";
+import VenueFormatPage from "./pages/VenueFormatPage";
 
 const queryClient = new QueryClient();
 
@@ -40,6 +41,10 @@ const App = () => (
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/osnashchenie-pod-klyuch" element={<TurnkeyPage />} />
+            <Route path="/kafe" element={<VenueFormatPage formatId="cafe" />} />
+            <Route path="/restoran" element={<VenueFormatPage formatId="restaurant" />} />
+            <Route path="/pekar" element={<VenueFormatPage formatId="bakery" />} />
+            <Route path="/delivery" element={<VenueFormatPage formatId="delivery" />} />
             <Route path="/calculator" element={<CalculatorPage />} />
             <Route path="/cases" element={<CasesPage />} />
             <Route path="/solutions/equipment" element={<EquipmentPage />} />

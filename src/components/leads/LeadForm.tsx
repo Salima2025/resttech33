@@ -33,7 +33,7 @@ const schema = z.object({
 
 const input = "w-full mt-1 px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent";
 
-export default function LeadForm({ kind, onDone, compact }: { kind: LeadKind; onDone?: () => void; compact?: boolean }) {
+export default function LeadForm({ kind, onDone, compact, defaultVenue = "" }: { kind: LeadKind; onDone?: () => void; compact?: boolean; defaultVenue?: string }) {
   const cfg = LEAD_KINDS[kind];
   const [consent, setConsent] = useState(false);
   const [sending, setSending] = useState(false);
@@ -108,7 +108,7 @@ export default function LeadForm({ kind, onDone, compact }: { kind: LeadKind; on
         <label className="block"><span className="text-sm font-medium text-foreground">Телефон или Telegram *</span>
           <input name="contact" maxLength={100} placeholder="+7 999 123-45-67 или @nick" className={input} />{err("contact")}</label>
         <label className="block"><span className="text-sm font-medium text-foreground">Тип заведения *</span>
-          <select name="venue" defaultValue="" className={input}><option value="">Выберите</option>{VENUES.map((v) => <option key={v}>{v}</option>)}</select>{err("venue")}</label>
+          <select name="venue" defaultValue={defaultVenue} className={input}><option value="">Выберите</option>{VENUES.map((v) => <option key={v}>{v}</option>)}</select>{err("venue")}</label>
         <label className="block"><span className="text-sm font-medium text-foreground">Город *</span>
           <input name="city" maxLength={100} placeholder="Москва" className={input} />{err("city")}</label>
         <label className="block"><span className="text-sm font-medium text-foreground">Стадия проекта *</span>
