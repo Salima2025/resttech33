@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import BackNav from "@/components/layout/BackNav";
 import CookieBanner from "@/components/CookieBanner";
 import HomePage from "./pages/HomePage";
 import CalculatorPage from "./pages/CalculatorPage";
@@ -37,6 +38,7 @@ const App = () => (
       <BrowserRouter>
         <LeadDialogProvider>
         <Header />
+        <BackNav />
         <main className="min-h-screen pb-16 md:pb-0">
           <Routes>
             <Route path="/" element={<HomePage />} />
