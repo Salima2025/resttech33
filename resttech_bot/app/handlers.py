@@ -7,7 +7,7 @@ from sqlalchemy import select
 from .config import settings
 from .db import Session, User, Product, Lead
 from .keyboards import main_menu, choices, product_actions
-from .states import LeadForm, SellForm, ProjectForm
+from .states import LeadForm, SellForm, ProjectForm, ProductContact
 
 router = Router()
 CATEGORIES = ["Тепловое", "Холодильное", "Электромеханическое", "Посудомоечное", "Барное", "Нейтральное", "Комплексное оснащение", "Пока не знаю"]
@@ -65,18 +65,20 @@ async def catalog(message: Message):
             await message.answer(caption, reply_markup=product_actions(p.id), parse_mode="HTML")
 
 @router.callback_query(F.data.startswith("product:"))
-async def product_request(callback: CallbackQuery):
+async def product_request(callback: CallbackQuery, state: FSMContext):
     product_id = int(callback.data.split(":")[1])
-    await callback.answer("Запрос отправлен")
-    await callback.message.answer("Оставьте контакт для связи (телефон или @username).")
-    # A minimal lead is recorded; follow-up contact is collected in a later iteration.
-    async with Session() as session:
-        session.add(Lead(telegram_id=callback.from_user.id, lead_type="product_interest",
-                         payload=json.dumps({"product_id": product_id}, ensure_ascii=False)))
-        await session.commit()
-    if settings.admin_chat_id:
-        await callback.bot.send_message(settings.admin_chat_id,
-            f"Интерес к товару #{product_id}. Клиент: @{callback.from_user.username or callback.from_user.id}")
+    await callback.answer()
+    await callback.message.answer("Оставьте телефон или Telegram для связи.")
+    await callback.message.bot_data.setdefault("product_interest", {})[callback.from_user.id] = product_id
+    await state.update_data(product_id=product_id)\n    await state.set_state(ProductContact.waiting)
+    # The next text message is captured by the product contact handler.
+
+@router.message(ProductContact.waiting)
+async def product_contact(message: Message, state: FSMContext):
+    product_id = (await state.get_data()).get("product_id")
+    await save_lead(message, "product_interest", {"product_id": product_id, "contact": message.text})
+    await state.clear()
+    await message.answer("Спасибо! Запрос по товару передан специалисту RestTech.", reply_markup=main_menu())
 
 @router.callback_query(F.data.startswith("answer:"))
 async def answer(callback: CallbackQuery, state: FSMContext):
