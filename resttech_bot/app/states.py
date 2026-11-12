@@ -29,3 +29,6 @@ class ProjectForm(StatesGroup):
     city = State()
     deadline = State()
     contact = State()
+
+class ProductContact(StatesGroup):
+    waiting = State()
