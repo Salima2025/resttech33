@@ -15,13 +15,13 @@ def is_admin(message: Message) -> bool:
 async def add_product(message: Message):
     if not is_admin(message):
         return
-    # /add_product new|used|category|title|price|city|brand|description
+    # /add_product new|category|title|price|city|brand|description
     raw = message.text.partition(" ")[2]
     parts = raw.split("|", 7)
-    if len(parts) < 8 or parts[0] not in {"new", "used"}:
+    if len(parts) != 7 or parts[0] not in {"new", "used"}:
         await message.answer("Формат:\n/add_product new|used|категория|название|цена_числом|город|бренд|описание")
         return
-    condition, category, title, price, city, brand, description = parts[0], *parts[1:]
+    condition, category, title, price, city, brand, description = parts
     try:
         price_value = int(price) if price.strip() else None
     except ValueError:
