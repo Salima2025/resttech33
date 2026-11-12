@@ -2,7 +2,7 @@ services:
   bot:
     build: .
     env_file: .env
-    restart: unless-stopped
+    environment:\n      DATABASE_URL: postgresql+asyncpg://resttech:${POSTGRES_PASSWORD}@db:5432/resttech\n    restart: unless-stopped
     depends_on:
       db:
         condition: service_healthy
